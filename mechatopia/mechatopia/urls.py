@@ -18,6 +18,7 @@ from django.urls import path
 from learning import views as views2
 from users import views as views1
 from task import views as views3
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,15 +30,14 @@ urlpatterns = [
 ### path('login/', views1.login),
 ### path('login/check_login/', views1.check_login),
 ### path('logout/',views1.logout),
-### path('signup',views1.signup), 
+### path('signup',views1.signup),
 ### path('signup/check_signup', views1.check_signup),
 ### path('success01/<int:page_id>/<int:status>/', views1.succes01),
 
 ### learning
 
-### task  
+### task
 
 ]
 
-
-
+urlpatterns += staticfiles_urlpatterns()
