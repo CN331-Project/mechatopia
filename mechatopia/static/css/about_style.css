@@ -1,5 +1,5 @@
 body{
-    font-family: 'Niramit', sans-serif;
+    font-family: 'Kanit', sans-serif;
     margin: 0;
     background-color: #F6F6F6;
 }
@@ -29,6 +29,8 @@ body section.first{
     padding-top: 55px;
     padding-left: 180px;
     height: 430px;
+    display: flex;
+    
     
 }
 
@@ -38,12 +40,44 @@ body section.first div{
     background-color: white;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding-left: 200px;
+   display: flex;
+    transition: all 1s;   
     
     
 }
-body section.first div img{
-    padding-top: 110px;
+body section.first div:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.06);
 
+}  
+
+body section.first div img{
+   padding-top: 90px;
+   padding-left: 20px;
+
+}
+
+
+body section.first div container{
+    list-style: none;
+    padding-left: 50px;
+}
+
+body section.first div container li.logo{
+    font-size: 50px;
+    padding-top: 50px;
+    padding-left: 350px;
+    padding-bottom: 30px;
+    
+
+}
+
+body section.first div container li.p1{
+    margin: 0;
+    font-size: 23px;
+    padding-left: 200px;
+    padding-bottom: 15px;
+    
 }
 
 body section.second container{
@@ -60,8 +94,76 @@ body section.second div{
     background-color: white;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     margin-right: 120px;
+    transition: all 0.8s; 
     
-   
+}
+
+body section.second div:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.06);
+
+}  
+
+body section.second div.dev p{
+    font-size: 30px;
+    padding-left: 280px;
+    margin-bottom: 10px;
+
+
+}
+
+body section.second div.dev li{
+    list-style: none;
+    font-size: 20px;
+    padding-left: 125px;
+    padding-top: 15px;
     
-    
+}
+
+body section.second div.link p{
+    font-size: 30px;
+    padding-left: 250px;
+    margin-bottom: 10px;
+
+}
+
+body section.second div.link box{
+    display: flex;
+}
+
+
+
+.git{
+    padding-left: 150px;
+    list-style: none;
+}
+
+.git a {
+    text-decoration: none;
+}
+.git a li p2{
+    font-size: 20px;
+    color: black;
+    padding-left: 35px;
+}
+.pivol{
+    list-style: none;
+    padding-top: 13px;
+
+}
+
+.pivol a{
+    text-decoration: none;
+}
+
+.pivol a li img{
+    padding-left: 30px;
+    padding-bottom: 10px;
+
+}
+.pivol a li p2{
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    padding-left: 35px;
 }
