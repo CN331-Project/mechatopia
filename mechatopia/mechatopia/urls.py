@@ -15,23 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from learning import views as views1
-from users import views as views2
+from learning import views as views2
+from users import views as views1
 from task import views as views3
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-]
-"""
+
+
 ### users
     path('', views1.welcome),
-    path('login/', views1.login),
-    path('login/check_login/', views1.check_login),
-    path('logout/',views1.logout),
-    path('signup',views1.signup), 
-    path('signup/check_signup', views1.check_signup),
-    path('success01/<int:page_id>/<int:status>/', views1.succes01),
+### path('login/', views1.login),
+### path('login/check_login/', views1.check_login),
+### path('logout/',views1.logout),
+### path('signup',views1.signup), 
+### path('signup/check_signup', views1.check_signup),
+### path('success01/<int:page_id>/<int:status>/', views1.succes01),
 
 ### learning
 
@@ -41,11 +41,3 @@ urlpatterns = [
 
 
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('home/<int:stid>/', views1.home),
-    path('page1/', views1.page1),
-    path('search_sub/<int:stid>/', views1.search_sub),
-    path('home/adduser/', views1.adduser),
-    path('home/adduser/adduser2/', views1.adduser2),
-    path('success01/<int:stid>/<int:status>/', views1.succes01), """
