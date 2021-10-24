@@ -2,8 +2,10 @@ import os
 from pathlib import Path
 print("\n###   activate venv!   ###")
 pp = os.getcwd()+"\\..\\.venv_project\\Scripts\\activate";
-#print(pp)
+qq = "source  " + os.getcwd()+"/../.venv_project/Scripts/activate";
+print(qq)
 os.system('cmd /k ' + pp)
+os.system(qq)
 
 
 #print('getcwd:      ', os.getcwd())
