@@ -12,4 +12,4 @@
 
 - นายพรชัย พุ่มภิญโญ  6210612732
 
-##### - [info page](https://dashboard.heroku.com/apps/mecha-fortress-21475) -
+##### - [info page](https://mecha-fortress-21475.herokuapp.com/) -
