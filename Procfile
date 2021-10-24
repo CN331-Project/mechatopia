@@ -1,1 +1,1 @@
-web: gunicorn mechatopia/mechatopia.wsgi
+web: gunicorn mechatopia.wsgi
