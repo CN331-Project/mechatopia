@@ -7,8 +7,8 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/about_style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" croorigin>
-    <link href="https://fonts.googleapis.com/c2?family=Niramit&family=Roboto&display=swap" rel="stylesheet">   
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -19,19 +19,47 @@
     </header>
     <section class="first">
         <div>
+          <img src="{% static 'media/com.png'%}" width="243" height="182">
+          <container>
+            <li class="logo">Mechatopia</li>
+            <li class="p1">เป็นสถานที่ที่มอบประสบการณ์ในการเรียนรู้ด้านแมคคาทอนิกส์ </li>
+            <li class="p1">เข้ามาร่วมเรียนรู้และฝึกฝนไปพร้อมกัน </li>
+          </container>
           
-            <img src="{% static 'media/com.png'%}" id="com_pic">
-            
         </div>
+        
     </section>
     
     <section class="second">
         <container>
-        <div>
+        <div class="dev">
+            <p>นักพัฒนา</p>
+            <li>นาย สุเมต คงแก้ว</li>
+            <li>นาย ปัณณวิชญ์ สังวร</li>
+            <li>นาย ธนวินท์ ศรีสุข</li>
+            <li>นาย พรชีย พุ่มภิญโญ</li>
             
         </div>
-        <div>
+        <div class="link">  
+            <p>Link ที่เกี่ยวข้อง</p>
+            <box>
+                <ul class="git">
+                    <a href="https://github.com/CN331-Project/mechatopia" >
+                        <li><img src="{% static 'media/githup.png'%}"></li>
+                        <li><p2>Githup</p2></li>
+                    </a>
+                </ul>
+                <ul  class="pivol">
+                    <a href="https://www.pivotaltracker.com/n/projects/2535855" class="pivol">
+                        <li><img src="{% static 'media/pivotal.png'%}"></li>
+                        <li><p2>Pivotal Tracker</p2></li>
+                    </a>
+                 
+                </ul>
+            </box>
             
+        
+        
         </div>
         </container>
     </section>
