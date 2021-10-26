@@ -27,4 +27,6 @@ body header li{
 
 body img{
     padding-left: 500px;
+    pointer-events: none;
 }
+
