@@ -25,8 +25,102 @@ body header li{
     
 }
 
-body img{
-    padding-left: 500px;
-    pointer-events: none;
+section{
+    width: 677px;
+    height: 710px;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-left: 600px;
+    margin-top: 110px;
+
 }
 
+
+section div ul{
+    list-style: none;
+    padding-top: 30px;
+ 
+}
+
+.name{
+    font-size: 60px;
+    text-align: center;
+}
+.des{
+    font-size: 20px;
+    text-align: center;
+}
+.key{
+    padding-top: 40px;
+
+   
+}
+
+.key form p3{
+    font-size: 20px;
+    padding-left: 290px;
+
+}
+
+
+.login{
+    padding-left: 230px;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    
+   
+}
+
+.login ul {
+    padding-left: 70px;
+    color: #B17878;
+    display: flex;
+    flex-direction: column;
+}
+
+.login ul a{
+    text-decoration: none;
+    color: #1977F3;
+    padding: 10px 12px;
+    margin-top: 12px;
+    border-radius: 10px;
+    text-align: center;
+   
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+}
+
+.fillbox{
+    border: none;
+    outline: none;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.16);
+    margin-top: 30px;
+    font-family: 'Kanit', sans-serif;
+    width: 240px;
+    height: 36px;
+    font-size: 19px;
+    padding-left: 20px;
+    border-radius: 3px;
+    color: #B17878;
+}
+
+.submit{
+    margin-top: 30px;
+    font-family: 'Kanit', sans-serif;
+    background:#1977F3;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+    color:white;
+    height:34px;
+    width:100px;
+    font-size: 17px;
+    text-shadow:none;
+    border: none;
+    border-radius: 7px;
+}
+
+.forget{
+    color: #FF0000;
+    text-decoration: none;
+    padding-top: 35px;
+    padding-left: 68px;
+}
