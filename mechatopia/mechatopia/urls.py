@@ -27,6 +27,7 @@ urlpatterns = [
 
 ### users
     path('', views1.welcome),
+    path('home/', views2.home),
 ### path('login/', views1.login),
 ### path('login/check_login/', views1.check_login),
 ### path('logout/',views1.logout),
