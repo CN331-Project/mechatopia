@@ -39,6 +39,7 @@ urlpatterns = [
 
 ### learning
 	path('learning/', views2.learning ,name='learning'),
+	path('learning/articles/<int:learning_id>/', views2.articles ,name='articles'),
 ### task
 	path('task/challenge/', views3.challenge,name='challenge'),
     path('task/lab/', views3.lab ,name='lab'),
