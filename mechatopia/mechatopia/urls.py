@@ -27,6 +27,9 @@ urlpatterns = [
 
 ### users
     path('', views1.welcome),
+    path('dashboard/', views1.dashboard,name='dashboard'),
+    path('tem/', views1.tem ,name='tem'),
+    
 ### path('login/', views1.login),
 ### path('login/check_login/', views1.check_login),
 ### path('logout/',views1.logout),
@@ -35,9 +38,10 @@ urlpatterns = [
 ### path('success01/<int:page_id>/<int:status>/', views1.succes01),
 
 ### learning
-
+	path('learning/', views2.learning ,name='learning'),
 ### task
-
+	path('task/challenge/', views3.challenge,name='challenge'),
+    path('task/lab/', views3.lab ,name='lab'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

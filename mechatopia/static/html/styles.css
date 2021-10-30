@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* DropInBlog inherits your fonts and colors*/
+body{font-family: 'Open Sans', sans-serif;border: 1px solid #f1f1f1;border-radius: 5px;margin:0;padding:0}
+a{color:#F37335;}
+.myPageContainer{max-width:1100px;padding:1em;margin:0 auto;}
