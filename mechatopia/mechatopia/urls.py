@@ -43,6 +43,10 @@ urlpatterns = [
 ### task
 	path('task/challenge/', views3.challenge,name='challenge'),
     path('task/lab/', views3.lab ,name='lab'),
+
+
+### each_article
+#	path('task/lab/', views3.lab ,name='lab'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
