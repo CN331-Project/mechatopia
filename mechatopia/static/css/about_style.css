@@ -90,6 +90,7 @@ section div ul{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
 }
 
+
 .fillbox{
     border: none;
     outline: none;
@@ -102,6 +103,26 @@ section div ul{
     padding-left: 20px;
     border-radius: 3px;
     color: #B17878;
+}
+
+.fillsignin{
+    padding-top: 30px;
+    
+
+}
+.fillboxsign{
+    border: none;
+    outline: none;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.16);
+    margin-top: 10px;
+    font-family: 'Kanit', sans-serif;
+    width: 240px;
+    height: 36px;
+    font-size: 19px;
+    padding-left: 20px;
+    border-radius: 3px;
+    color: #B17878;
+
 }
 
 .submit{
@@ -123,4 +144,21 @@ section div ul{
     text-decoration: none;
     padding-top: 35px;
     padding-left: 68px;
+}
+
+
+.createuser{
+    margin-top: 30px;
+    margin-left: 510px;
+    font-family: 'Kanit', sans-serif;
+    background:#47B42A;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+    color:white;
+    height:34px;
+    width:100px;
+    font-size: 17px;
+    text-shadow:none;
+    border: none;
+    border-radius: 7px;
+    
 }
