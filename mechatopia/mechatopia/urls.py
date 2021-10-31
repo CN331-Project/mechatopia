@@ -26,9 +26,16 @@ urlpatterns = [
 
 
 ### users
-    path('', views1.welcome),
+   
     path('dashboard/', views1.dashboard,name='dashboard'),
     path('tem/', views1.tem ,name='tem'),
+    
+    
+    path('', views1.welcome),
+    path('loginform',views1.loginform, name="login"),
+    path('logout',views1.logout, name="logout"),
+    path('signup',views1.signup, name="signup"),
+    path('signupform',views1.account, name="signupform"),
     
 ### path('login/', views1.login),
 ### path('login/check_login/', views1.check_login),

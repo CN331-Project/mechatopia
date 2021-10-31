@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block login %}
+    
+<section>
+           
+    <div class="headed">
+        <ul>
+            <li class="name">Mechatopia</li>
+            <li class="des">มาร่วมเรียนรู้และฝึกฝนไปด้วยกัน</li>
+        </ul>
+    </div>
+
+    <div class="key">
+        <form action="loginform" method="post">
+            {% csrf_token %}
+            <p3>กรุณาเข้าสู่ระบบ</p3>
+            <div class="login">
+                
+            
+                <input type="text" placeholder="ชื่อผู้ใช้" class="fillbox" name="Username"> 
+                <input type="password" placeholder="รหัสผ่าน" class="fillbox" name="Password"> 
+                <input type="submit" class="submit" value="เข้าสู่ระบบ" >
+                <a href="#" class="forget">ลืมรหัสผ่าน</a>
+
+                <ul>
+                    <p4>ยังไม่มีบัญชีใช่ไหม ?</p4>
+                    <a href="/signup">สร้างบัญชีใหม่</a>
+                </ul>
+                
+            </div>
+            
+           
+        </form>
+
+    </div>
+
+
+</section>
+{% endblock %}
+
+
+
+
