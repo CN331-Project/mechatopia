@@ -27,6 +27,9 @@ urlpatterns = [
 
 ### users
    
+    path('', views1.welcome, name='index'),
+    path('', views1.dashboard, name='dashboard'),
+    path('', views1.tem, name='tem'),
     path('dashboard/', views1.dashboard,name='dashboard'),
     path('tem/', views1.tem ,name='tem'),
     
