@@ -27,7 +27,9 @@ urlpatterns = [
 
 ### users
     path('', views1.welcome),
-    path('home/', views2.home),
+    path('home/<str:user_firstname>', views2.home,name="home"),
+    path('loginform',views1.loginform, name="login"),
+    path('logout',views1.logout, name="logout")
 ### path('login/', views1.login),
 ### path('login/check_login/', views1.check_login),
 ### path('logout/',views1.logout),
