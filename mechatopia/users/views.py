@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
 
@@ -31,17 +32,28 @@ def account(request):
     password = request.POST['Password']
     repassword = request.POST['Re-Password']
 
-    add_user = User.objects.create_user(
-        username = username,
-        password = password,
-        email = email,
-        first_name = firstname,
-        last_name = secondname
-    )
+    if password == repassword:
+        if User.objects.filter(username=username).exists():
+            messages.info(request,'ผู้ใช้นี้ถูกใช้แล้ว')
+            return redirect('signup')
+        elif User.objects.filter(email=email).exists():
+            messages.info(request,'email นี้ลงทะเบียนแล้ว')
+            return redirect('signup')
+        else:
+            add_user = User.objects.create_user(
+            username = username,
+            password = password,
+            email = email,
+            first_name = firstname,
+            last_name = secondname
+            )
+            add_user.save()
+            return render(request,'index.html')
+    else:
+            messages.info(request,'กรอกรหัสผ่านไม่ตรงกัน')
+            return redirect('signup')
 
-    add_user.save()
-
-    return render(request,'index.html')
+    
 
 def logout(request):
     auth.logout(request)
