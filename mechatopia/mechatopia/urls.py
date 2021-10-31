@@ -43,7 +43,8 @@ urlpatterns = [
 ### task
 	path('task/challenge/', views3.challenge,name='challenge'),
     path('task/lab/', views3.lab ,name='lab'),
-
+    path('learning_bak/', views2.learning_bak ,name='learning_bak'),
+    
 
 ### each_article
 #	path('task/lab/', views3.lab ,name='lab'),

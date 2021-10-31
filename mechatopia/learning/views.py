@@ -12,6 +12,10 @@ import numpy as np
 
 def learning(request):
     return render(request, "search_learning.html")
+
+def learning_bak(request):
+    return render(request, "search_learning_bak.html")
+
     
 def articles(request,learning_id):
 	link ="0"
