@@ -2,12 +2,31 @@
 {% extends "layout.html" %}
 
 {% block login%}
-    <header>
-        <a></a>
-        <li>Mechatopia</li>
-        <li>Home</li>
-        <li>Progress</li>
-        <li><<a href="/logout">log out</a></li>
-    </header>
+<div class="all"> 
+        
+        <div class="menu">
+             <p1>Mechatopia</p1>
+            <ul>
+                <div class="unselect">{% load static %} <img src="{% static "media/menu-01.svg" %}" alt="about" width="31" height="31" /></div>
+                <li id="menu1">หน้าหลัก</li>
+            </ul>
+            <ul>
+                <div class="unselect">{% load static %} <img src="{% static "media/menu2-01.svg" %}" alt="about" width="31" height="31" /></div>
+                <li id="menu2">ความก้าวหน้า</li>
+            </ul>
+            <ul>
+                <div class="select">{% load static %} <img src="{% static "media/menu 3-01.svg" %}" alt="about" width="31" height="31" /></div>
+                <li id="menu3">บัญชี</li>
+            </ul>
+            
+            
+           
+            
+            <li class="logout"><a href="/logout">ออกจากระบบ</a></li>
+        </div>
+        <div class="content">
+            <p1>{{a}}</p1>
+       </div>
+</div>
 
 {% endblock %} 
