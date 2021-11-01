@@ -26,12 +26,11 @@ urlpatterns = [
 
 
 ### users
-   
+    path('', views1.welcome, name='index'),
+    path('', views1.dashboard, name='dashboard'),
+    path('', views1.tem, name='tem'),
     path('dashboard/', views1.dashboard,name='dashboard'),
-    path('tem/', views1.tem ,name='tem'),
     
-    
-    path('', views1.welcome),
     path('loginform',views1.loginform, name="login"),
     path('logout',views1.logout, name="logout"),
     path('signup',views1.signup, name="signup"),
