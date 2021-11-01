@@ -7,5 +7,5 @@ gunicorn
 django-heroku
 coverage
 pandas
-nampy
+numpy
 ##
