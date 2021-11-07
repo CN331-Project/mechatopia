@@ -1,0 +1,59 @@
+
+ 
+ /* Setting Detail*/
+ 
+ .Setting_content{
+     width: 1738px;
+     height: 969px;
+     display: flex;
+     
+ }
+
+ .Setting_content div{
+    margin-top: 40px;
+    margin-left: 190px;
+    width: 600px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(25px) brightness(115%);
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 0px 18px;
+    border-radius: 15px;
+    list-style: none;
+    
+}
+
+.header{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-left: 60px;
+    padding-bottom: 30px;
+    color: #1479FF;
+   
+   
+
+ }
+.detail{
+    
+    padding-left: 60px;
+
+ }
+
+ .detail div{
+    display: flex;
+    flex-wrap: wrap;
+    
+ }
+
+.detail form li input{
+    display: none;
+}
+
+ #cancel{
+     display: none;
+ }
+
+ #save{
+     display: none;
+ }
+

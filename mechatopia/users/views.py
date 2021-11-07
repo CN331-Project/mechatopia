@@ -1,27 +1,10 @@
-from django.shortcuts import redirect, render
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.contrib.auth.models import User,auth
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib import messages
-#from .models import Course
-#from users.models import Student
-
+from .models import Proflie
 # Create your views here.
-
-def welcome(request):
-    return render(request,'index.html')
-
-
-def dashboard(request):
-    return render(request, "dashboard.html")
-    
-
-def tem(request):
-    return render(request, "tem.html")
 
 
 def welcome(request):
@@ -34,7 +17,7 @@ def loginform(request):
     user = authenticate(username=username, password=password)
     if user is not None :
         auth.login(request,user)
-        return redirect('dashboard')
+        return redirect('home')
     else:
         return redirect('/')
 
@@ -70,16 +53,24 @@ def account(request):
             messages.info(request,'กรอกรหัสผ่านไม่ตรงกัน')
             return redirect('signup')
 
-    
+def setting(request):
+    data = Proflie.objects.filter(user = request.user.id)
+    return render(request, "setting.html",{'data':data})
+
+def editprofile(request):
+    faculty = request.POST['faculty']
+    major = request.POST['major']
+    if faculty == '':
+        return redirect('setting')
+    else:
+        edit = Proflie.objects.get(user = request.user.id)
+        edit.faculty = faculty
+        edit.save()
+        edit_major = Proflie.objects.get(user = request.user.id)
+        edit_major.major = major
+        edit_major.save()
+        return redirect('setting')
 
 def logout(request):
     auth.logout(request)
     return redirect("/")
-
-
-# return  HttpResponseRedirect(reverse('urlname'))
-
-
-
-
-

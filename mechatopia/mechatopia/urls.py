@@ -26,34 +26,23 @@ urlpatterns = [
 
 
 ### users
-    path('', views1.welcome, name='index'),
-    path('', views1.dashboard, name='dashboard'),
-    path('', views1.tem, name='tem'),
-    path('dashboard/', views1.dashboard,name='dashboard'),
+    path('', views1.welcome),
+    path('home/', views2.home,name="home"),
+    path('challenge/', views3.challenge,name="challenge"),
+    path('challenge/x', views3.challengeX, name="challenge"),
+    path('home/task', views3.lab,name="task"),
+    path('setting/', views1.setting,name="setting"),
+    path('progress/', views2.progress,name="progress"),
+    
     
     path('loginform',views1.loginform, name="login"),
     path('logout',views1.logout, name="logout"),
     path('signup',views1.signup, name="signup"),
     path('signupform',views1.account, name="signupform"),
-    
-### path('login/', views1.login),
-### path('login/check_login/', views1.check_login),
-### path('logout/',views1.logout),
-### path('signup',views1.signup),
-### path('signup/check_signup', views1.check_signup),
-### path('success01/<int:page_id>/<int:status>/', views1.succes01),
 
-### learning
-	path('learning/', views2.learning ,name='learning'),
-	path('learning/articles/<int:learning_id>/', views2.articles ,name='articles'),
-### task
-	path('task/challenge/', views3.challenge,name='challenge'),
-    path('task/lab/', views3.lab ,name='lab'),
-    path('learning_bak/', views2.learning_bak ,name='learning_bak'),
-    
+    path('editprofile',views1.editprofile, name="editprofile"),
 
-### each_article
-#	path('task/lab/', views3.lab ,name='lab'),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()

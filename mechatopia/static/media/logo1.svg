@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189" height="184" viewBox="0 0 189 184">
+  <defs>
+    <filter id="Rectangle_230" x="0" y="0" width="189" height="184" filterUnits="userSpaceOnUse">
+      <feOffset dx="-3" dy="14" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="19.5" result="blur"/>
+      <feFlood flood-color="#325ec4" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_730" data-name="Group 730" transform="translate(3.5 -115.5)">
+    <g transform="matrix(1, 0, 0, 1, -3.5, 115.5)" filter="url(#Rectangle_230)">
+      <rect id="Rectangle_230-2" data-name="Rectangle 230" width="72" height="67" rx="22" transform="translate(61.5 44.5)" fill="#f3f8ff"/>
+    </g>
+    <g id="Group_725" data-name="Group 725" transform="translate(73.839 180.767)">
+      <g id="Group_627" data-name="Group 627" transform="translate(0 0)">
+        <path id="Path_333" data-name="Path 333" d="M316.438,259.374a6.811,6.811,0,1,0-7.513,0,10.906,10.906,0,0,0-7.141,10.217H303.6a9.082,9.082,0,0,1,18.163,0h1.816A10.907,10.907,0,0,0,316.438,259.374Zm-8.752-5.676a4.995,4.995,0,1,1,4.995,4.995A5,5,0,0,1,307.687,253.7Z" transform="translate(-292.702 -242.346)" fill="#1479ff" stroke="#1479ff" stroke-width="1"/>
+        <path id="Path_334" data-name="Path 334" d="M350.829,246.694a6.8,6.8,0,1,0-9.616-9.132,8.651,8.651,0,0,1,1.605.851,5.027,5.027,0,0,1,1.219-1.353,4.986,4.986,0,1,1,3.034,8.953c-.161,0-.319-.009-.476-.024a8.58,8.58,0,0,1-.306,1.9c.26-.023.516-.056.782-.056a9.137,9.137,0,0,1,9.082,9.082h1.816A10.906,10.906,0,0,0,350.829,246.694Z" transform="translate(-318.011 -234.207)" fill="#1479ff" stroke="#1479ff" stroke-width="1"/>
+        <path id="Path_335" data-name="Path 335" d="M287.323,247.829c.266,0,.522.033.782.056a8.58,8.58,0,0,1-.306-1.9c-.157.015-.315.024-.476.024a4.992,4.992,0,1,1,4.253-7.6,8.662,8.662,0,0,1,1.605-.851,6.806,6.806,0,1,0-9.615,9.132,10.906,10.906,0,0,0-7.141,10.217h1.816a9.137,9.137,0,0,1,9.081-9.082Z" transform="translate(-276.425 -234.207)" fill="#1479ff" stroke="#1479ff" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,25 +1,13 @@
-from django.shortcuts import redirect, render
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.contrib.auth.models import User,auth
-#from .models import Course
-#from users.models import Student
+from django.shortcuts import render
 
 # Create your views here.
-
-
-def challenge(request):
-    return render(request, "dashboard.html")
-    
+from task.models import Lab
 
 def lab(request):
-    return render(request, "tem.html")
+   return render(request,'lab.html')
 
+def challenge(request):
+   return render(request,'challenge.html')
 
-
-# return  HttpResponseRedirect(reverse('urlname'))
-
-
-
-
-
+def challengeX(request):
+   return render(request,'chalengeX.html')
