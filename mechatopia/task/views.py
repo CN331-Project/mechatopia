@@ -140,8 +140,10 @@ def problem(request,challenge_id):
 			file1.writelines(lines3)
 			file1.close()
 
+			#run = "python " + temp_py_file + " " + " ".join(lines1.split("\n")) + " \n "
 			run = "python " + temp_py_file + " " + " ".join(lines1.split("\n")) + " \n "
-			p = subprocess.Popen(run, stdout=subprocess.PIPE)
+			
+			p = subprocess.Popen([run], stdout=subprocess.PIPE)
 			output = p.communicate()[0].decode()
 
 			if lines2.split() == output.split():
