@@ -1,40 +1,214 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block login%}
-<section>
-    
-    
-    <form action="signupform" method="post">
-        {% csrf_token %}
-        {% for mes in  messages %}
-                <p5>{{mes}}</p5>
-            {% endfor %}
-        <div class="login">
-            
-            <label class="fillsignin">ชื่อผู้ใช้</label>
-            <input type="text" class="fillboxsign" name="Username"> 
-            <label class="fillsignin">Firstname</label>
-            <input type="text" class="fillboxsign" name="Firstname"> 
-            <label class="fillsignin">Secondname</label>
-            <input type="text" class="fillboxsign" name="Secondname"> 
-            <label class="fillsignin">Email</label>
-            <input type="text" class="fillboxsign" name="Email"> 
-            <label class="fillsignin">Password</label>
-            <input type="password" class="fillboxsign" name="Password"> 
-            <label class="fillsignin">Re-Password</label>
-            <input type="password" class="fillboxsign" name="Re-Password"> 
-            
-  
-            
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Login</title>
+    <!-- Custom fonts for this template-->
+    {% load static %} <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %} " rel="stylesheet" type="text/css">
+    {% load static %} <link
+        href="{% static 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i' %} "
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    {% load static %} <link href="{% static 'css/sb-admin-2.min.css' %} " rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+        {% for i in messages%}
+        <div class="alert alert-danger" role="alert">   
+        <center>{{i}}</center>  </div>
+        {%endfor%} 
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+                            <form class="user" action="{%url 'signupform' %}" method="post" enctype="multipart/form-data"> 
+                                {% csrf_token %}
+                                <div class="form-group row">
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="Email..." name="Email">  
+                                </div>  
+                                <div class="form-group row">           
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Username..." name="Username">
+                                </div>                            
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Password" name="Password">
+                                    </div> <br>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" placeholder="Repeat Password" name="Re-Password">
+                                    </div>
+                                </div> 
+                                <div class="form-group row">                                        
+                                        <div class="mb-4 col-sm-6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div >
+                                        <h5 class="h5 text-gray-900 mb-4">Bio</h5>
+                                        </div>
+                                        <div>
+                                        <textarea class="form-control" name="bio" rows="4" placeholder="Bio..." value=""
+                                        ></textarea>                       
+                                        </div> 
+                                        </div>  
+
+                                        <div class="mb-4 col-sm-6"> &nbsp;&nbsp;&nbsp;
+                                        <div > 
+                                        <h5 class="h5 text-gray-900 mb-4">
+                                        <input type="file" accept="image/*" id="pic" name="pic" onchange="loadFile(event)"></h5> 
+                                        </div>
+                                        <div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img id="output"/ width="125" height="125" >                        
+                                        </div> 
+                                        </div>                                          
+                                </div>
+                                <input type="submit" class="submit btn btn-primary btn-user btn-block" value="Register Account" >
+                                </div> 
+                                
+                              <!--  <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a> -->
+                            </form>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.html">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <input type="submit" class="createuser" value="สร้างบัญชี"> 
-    </form>
-        
-    
-    
-    
- 
 
-</section>
+    </div>
 
-{% endblock %} 
+    <!-- Bootstrap core JavaScript-->
+    {% load static %} <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    {% load static %} <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Core plugin JavaScript-->
+    {% load static %} <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for all pages-->
+    {% load static %} <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+        output.addEventListener('change', function (e) {
+            if (e.target.files) {
+                let imageFile = e.target.files[0];
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = document.createElement("img");
+                    img.onload = function (event) {
+                        // Dynamically create a canvas element
+                        var canvas = document.createElement("canvas");
+
+                        // var canvas = document.getElementById("canvas");
+                        var ctx = canvas.getContext("2d");
+
+                        // Actual resizing
+                        ctx.drawImage(img, 0, 0, 300, 300);
+
+                        // Show resized image in preview element
+                        var dataurl = canvas.toDataURL(imageFile.type);
+                        document.getElementById("preview").src = dataurl;
+                    }
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(imageFile);
+            }
+        });
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
+<!--
+var canvas = document.createElement('canvas');
+var ctx = canvas.getContext('2d');
+canvas.width=300
+canvas.height=234
+ctx.drawImage(img, 0, 0, 300, 234);
+document.body.appendChild(canvas);
+
+createImageBitmap(
+    document.getElementById('image'), 
+    { resizeWidth: 300, resizeHeight: 234, resizeQuality: 'high' }
+)
+.then(imageBitmap => 
+    document.getElementById('canvas').getContext('2d').drawImage(imageBitmap, 0, 0)
+);
+import imageSqResizer from './image-square-resizer.js'
+
+let resizer = new imageSqResizer(
+    'image-input',
+    300,
+    (dataUrl) => 
+        document.getElementById('image-output').src = dataUrl;
+);
+//Get blob
+let formData = new FormData();
+formData.append('files[0]', resizer.blob);
+
+//get dataUrl
+document.getElementById('image-output').src = resizer.dataUrl;\
+
+let imgInput = document.getElementById('image-input');
+        imgInput.addEventListener('change', function (e) {
+            if (e.target.files) {
+                let imageFile = e.target.files[0];
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = document.createElement("img");
+                    img.onload = function (event) {
+                        // Dynamically create a canvas element
+                        var canvas = document.createElement("canvas");
+
+                        // var canvas = document.getElementById("canvas");
+                        var ctx = canvas.getContext("2d");
+
+                        // Actual resizing
+                        ctx.drawImage(img, 0, 0, 300, 300);
+
+                        // Show resized image in preview element
+                        var dataurl = canvas.toDataURL(imageFile.type);
+                        document.getElementById("preview").src = dataurl;
+                    }
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(imageFile);
+            }
+        });
+
+-->
+</body>
+
+</html>

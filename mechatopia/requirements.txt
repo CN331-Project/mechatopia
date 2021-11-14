@@ -6,4 +6,6 @@ whitenoise==5.3.0
 gunicorn
 django-heroku
 coverage
+pandas
+numpy
 ##

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>mecha - abcde</title>
+
+    <!-- Custom fonts for this template
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="
+     sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+
+    <!-- Custom styles for this template
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">-->
+    <!--<link rel="stylesheet" href="fontawesome/css/all.min.css">  https://fontawesome.com/ -->
+    <!--<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">  https://fonts.google.com/ -->
+    {% load static %}    <link rel="stylesheet" type="text/css" href="{% static 'css/templatemo-xtra-blog.css' %} ">
+    {% load static %}    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %} ">    
+    {% load static %}    <link rel="stylesheet" type="text/css" href="{% static 'css/sb-admin-2.min.css' %} ">
+    {% load static %}    <link rel="stylesheet" type="text/css" href="{% static 'vendor/fontawesome-free/css/all.min.css' %} ">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">mechatopia <sup></sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{%url 'dashboard' %}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->            
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'learning' %}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Learning</span></a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Task</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Task:</h6>
+                        <a class="collapse-item" href="{%url 'challenge' %}">Challenge</a>
+                        <a class="collapse-item" href="{%url 'lab' %}">Lab</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+            
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                       
+
+                       
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                {% load static %}  <img class="img-profile rounded-circle"
+                                  src="{% static "img/undraw_profile.svg"%}">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <div class="text-center">
+                        <p class="h3 mb-4 text-gray-800">Challenge</p>            
+                    </div>
+
+                      
+            <div class="row tm-row">
+
+<form class="row gx-3 gy-2 align-items-center" action="{%url 'challenge' %}" method="post">
+    {% csrf_token %}
+  <div class="col-sm-3">
+    <label class="visually-hidden" for="specificSizeInputName">search for...</label>
+    <input type="text" class="form-control" name="a1" placeholder="search for...">
+  </div>
+  <div class="col-sm-3">
+    <label class="visually-hidden" for="specificSizeSelect">Preference</label>
+    <select class="form-select" name="a2">
+      <option value="0" selected>select level</option>
+      <option value="1">easy</option>
+      <option value="2">medium</option>
+      <option value="3">hard</option>
+      <option value="4">very hard</option>
+    </select>
+  </div>
+  <div class="col-sm-3">
+    <label class="visually-hidden" for="specificSizeSelect">Preference</label>
+    <select class="form-select" name="a3">
+      <option value="0" selected>select tag</option>
+      {%for i in all_tag%}
+      <option value="{{i.Challenge_tag_ID}}">{{i.Challenge_tag_name}}</option>
+      {%endfor%}
+    </select>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary" >Search</button>
+  </div>
+</form>
+<h5><br> search -> {{a1}}  , level = {{a2}} , tag = {{a3}} <br></h5>
+
+<table class="table table-dark table-hover">
+  <thead>
+    <tr>
+      <th scope="col">&nbsp;&nbsp;#</th>
+      <th scope="col">problem</th>
+      <th scope="col">description</th>
+      <th scope="col">score</th>
+      <th scope="col">level</th>      
+      <th scope="col">date</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+{%for j in temp%}
+    <tr>
+      <td>&nbsp;&nbsp;{{forloop.counter}}</td>
+      <td>{{j.Challenge_question}}</td>
+      <td>{{j.Challenge_description}}</td>
+      <td>{{j.Challenge_score}}</td>
+      {%if j.Challenge_level == 1%}
+          {%if j.Challenge_level == 1%}
+            <td>easy</td>
+          {%endif%}      
+          {%if j.Challenge_level == 2%}
+            <td>medium</td>
+          {%endif%}
+          {%if j.Challenge_level == 3%}
+            <td>hard</td>
+          {%endif%}
+          {%if j.Challenge_level == 4%}
+            <td>very hard</td>
+          {%endif%}
+      {%else%}
+          <td>none level</td>
+      {%endif%}
+
+      <td>{{j.Challenge_date}}</td>
+      <td style="width:70px"><a class="btn btn-primary btn-sm" href="{%url 'problem' j.Challenge_ID %}"  type="button">challenge</a></td>
+    </tr>
+{%endfor%}
+
+  </tbody>
+</table>
+
+                <!-- ############################# -->
+  <!--              <h5> ค้นหา   :   รหัสวิชา =  {{my_list.0}}  ,  ชื่อวิชา   = {{my_list.1}}  ,   สำหรับชั้นปี   =  {{my_list.2}}    <h5>
+  {%for i in query%}
+    {%if my_list.0 == '' or my_list.0 == i.Scode%}  
+    {%if my_list.1 == '' or my_list.1 == i.Sname%}
+    {%if my_list.2 == 0 or my_list.2 == i.for_year%} 
+    <tr>
+      <td>&nbsp;&nbsp;{{forloop.counter}}</td>
+      <td>{{i.Scode}}</td>
+      <td>{{i.Sname}}</td>
+      <td>{{i.Sec}}</td>
+      <td>{{i.Sitting}}/{{i.Sit}}</td>
+      <td>สำหรับชั้นปี {{i.for_year}}</td>
+
+<!-      {%if i.Sit > i.Sitting %}
+        {{sit_temp}} = {{1}}
+      {%else%}
+        {{sit_temp}} = {{0}}
+      {%endif%}   ->
+      {%if stid == 0%}
+      <td>เข้าสู่ระบบเพื่อลงทะเบียน</td>
+      {%else%}
+      {%if i.Status == 1 and i.Sit > i.Sitting %}
+        <td><a class="btn btn-primary btn-sm" href="/enroll/{{stid}}/{{i.SID}}/"  type="button">register</a>
+            
+        </td>
+      {%else%}
+        <td><a class="btn btn-primary btn-sm disabled" aria-disabled="true" role="button" 
+        data-bs-toggle="button">noooo</a></td>
+      {%endif%}  
+      {%endif%}
+      {%if i.Status == 1 and i.Sit > i.Sitting %}
+        <td>กำลังเปิดรับ</td>
+      {%endif%} 
+      {%if i.Status == 0%}
+        <td>ปิดรับ</td>
+      {%endif%} 
+      {%if i.Status == 1 and  i.Sitting >= i.Sit%}
+        <td>เต็ม</td>
+      {%endif%}  
+        
+       
+    </tr>
+    {%endif%}{%endif%}{%endif%} 
+   {%endfor%}    -->
+
+            </div>
+            <div class="row tm-row tm-mt-100 tm-mb-75">
+                <div class="tm-prev-next-wrapper">
+                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-20">Prev</a>
+                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
+                </div>
+                <div class="tm-paging-wrapper">
+                    <span class="d-inline-block mr-3">Page</span>
+                    <nav class="tm-paging-nav d-inline-block">
+                        <ul>
+                            <li class="tm-paging-item active">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">1</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">2</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">3</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">4</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>                
+            </div>  
+
+
+
+
+                    
+                </div>
+                <!-- /.container-fluid -->                
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    {% load static %}  <script src="{% static 'vendor/jquery/jquery.min.js' %}" type="text/javascript"></script>
+    {% load static %}  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+    {% load static %} <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}" type="text/javascript"></script>
+    {% load static %} <script src="{% static 'js/sb-admin-2.min.js' %}" type="text/javascript"></script>   
+    {% load static %} <script src="{% static 'vendor/chart.js/Chart.min.js' %}" type="text/javascript"></script>
+    {% load static %} <script src="{% static 'js/demo/chart-area-demo.js' %}" type="text/javascript"></script>    
+    {% load static %} <script src="{% static 'js/demo/chart-pie-demo.js' %}" type="text/javascript"></script>
+    {% load static %} <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+    {% load static %} <script src="{% static 'js/templatemo-script.js' %}" type="text/javascript"></script>
+</body>
+
+</html>

@@ -26,23 +26,37 @@ urlpatterns = [
 
 
 ### users
-    path('', views1.welcome),
-    path('home/', views2.home,name="home"),
-    path('challenge/', views3.challenge,name="challenge"),
-    path('challenge/x', views3.challengeX, name="challenge"),
-    path('home/task', views3.lab,name="task"),
-    path('setting/', views1.setting,name="setting"),
-    path('progress/', views2.progress,name="progress"),
+    path('', views1.welcome, name='index'),
+    path('tem/', views1.tem, name='tem'),
+    path('dashboard/', views1.dashboard,name='dashboard'),
     
+    path('login/',views1.login, name="login"),
+    path('check_login/',views1.check_login, name="check_login"),
+    path('logout/',views1.logout, name="logout"),
+    path('signup/',views1.signup, name="signup"),
+    path('signupform/',views1.signupform, name="signupform"),
     
-    path('loginform',views1.loginform, name="login"),
-    path('logout',views1.logout, name="logout"),
-    path('signup',views1.signup, name="signup"),
-    path('signupform',views1.account, name="signupform"),
+### path('login/', views1.login),
+### path('login/check_login/', views1.check_login),
+### path('logout/',views1.logout),
+### path('signup',views1.signup),
+### path('signup/check_signup', views1.check_signup),
+### path('success01/<int:page_id>/<int:status>/', views1.succes01),
 
-    path('editprofile',views1.editprofile, name="editprofile"),
+### learning
+	path('learning/', views2.learning ,name='learning'),
+	path('learning/articles/<int:learning_id>/', views2.articles ,name='articles'),
+    path('learning_bak/', views2.learning_bak ,name='learning_bak'),
 
-
+### task
+	path('task/challenge/', views3.challenge,name='challenge'),
+    path('task/lab/', views3.lab ,name='lab'),
+    path('challenge/', views3.challenge ,name='challenge'),
+    path('challenge/problem/<int:challenge_id>/', views3.problem ,name='problem'),
+    path('simple_upload/<int:challenge_id>/', views3.simple_upload ,name='simple_upload'),
+    path('simple_upcode/<int:challenge_id>/', views3.simple_upcode ,name='simple_upcode'),
+### each_article
+#	path('task/lab/', views3.lab ,name='lab'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

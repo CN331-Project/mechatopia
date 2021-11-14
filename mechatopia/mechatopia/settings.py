@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'users',
     'learning',
     'task',
+    'admin_edit',
 ]
 
 MIDDLEWARE = [
@@ -124,9 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+MEDIA_URL = '/file/'
 STATICFILES_DIRS = [BASE_DIR /'static']
 STATIC_ROOT = os.path.join(BASE_DIR)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'file')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

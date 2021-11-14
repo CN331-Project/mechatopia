@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block login%}
+<section>
+    
+    
+    <form action="signupform" method="post">
+        {% csrf_token %}
+        {% for mes in  messages %}
+                <p5>{{mes}}</p5>
+            {% endfor %}
+        <div class="login">
+            
+            <label class="fillsignin">ชื่อผู้ใช้</label>
+            <input type="text" class="fillboxsign" name="Username"> 
+            <label class="fillsignin">Firstname</label>
+            <input type="text" class="fillboxsign" name="Firstname"> 
+            <label class="fillsignin">Secondname</label>
+            <input type="text" class="fillboxsign" name="Secondname"> 
+            <label class="fillsignin">Email</label>
+            <input type="text" class="fillboxsign" name="Email"> 
+            <label class="fillsignin">Password</label>
+            <input type="password" class="fillboxsign" name="Password"> 
+            <label class="fillsignin">Re-Password</label>
+            <input type="password" class="fillboxsign" name="Re-Password"> 
+            
+  
+            
+        </div>
+        <input type="submit" class="createuser" value="สร้างบัญชี"> 
+    </form>
+        
+    
+    
+    
+ 
+
+</section>
+
+{% endblock %} 

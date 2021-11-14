@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+<center>
+
 {% block login %}
     
 <section>
@@ -10,7 +12,7 @@
             <li class="des">มาร่วมเรียนรู้และฝึกฝนไปด้วยกัน</li>
         </ul>
     </div>
-
+    
     <div class="key">
         <form action="loginform" method="post">
             {% csrf_token %}
@@ -35,10 +37,11 @@
 
     </div>
 
+<meta http-equiv="Refresh" content="0; url={%url 'login' %}" />
 
 </section>
 {% endblock %}
 
-
+</center>
 
 
