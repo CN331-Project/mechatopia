@@ -26,21 +26,21 @@ urlpatterns = [
 
 
 ### users
-    path('', views1.welcome),
-    path('home/', views2.home,name="home"),
-    path('challenge/', views3.challenge,name="challenge"),
-    path('challenge/x', views3.challengeX, name="challenge"),
-    path('home/task', views3.lab,name="task"),
-    path('setting/', views1.setting,name="setting"),
-    path('progress/', views2.progress,name="progress"),
-    
-    
-    path('loginform',views1.loginform, name="login"),
-    path('logout',views1.logout, name="logout"),
-    path('signup',views1.signup, name="signup"),
-    path('signupform',views1.account, name="signupform"),
+    path('', views1.welcome, name="welcome"),
+    path('home/', views2.home, name="home"),
+    path('challenge/', views3.challenge, name="challenge"),
+    path('challenge/x', views3.challengeX, name="challengeX"),
+    path('home/task', views3.lab, name="task"),
+    path('setting/', views1.setting, name="setting"),
+    path('progress/', views2.progress, name="progress"),
 
-    path('editprofile',views1.editprofile, name="editprofile"),
+
+    path('loginform', views1.loginform, name="login"),
+    path('logout', views1.logout, name="logout"),
+    path('signup', views1.signup, name="signup"),
+    path('signupform', views1.account, name="signupform"),
+
+    path('editprofile', views1.editprofile, name="editprofile"),
 
 
 ]
