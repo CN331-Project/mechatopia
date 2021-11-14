@@ -11,6 +11,8 @@ from users.models import User as User2
 from users.models import Progress,Code,Pass
 from django.core.files.storage import FileSystemStorage
 import os
+from shutil import copyfile
+
 #from .models import Course
 #from users.models import Student
 
@@ -27,12 +29,11 @@ def tem(request):
 ####################### ไม่ใช้ #######################################
 
 def dashboard(request):
-    #temp2 = User.objects.all().filter(email = "sss@sss.com").values_list()
     user_login_name = request.user 
     temp2 = User.objects.all().filter(username = user_login_name).values_list()
     temp3 = User2.objects.all().filter(User_username = user_login_name).values_list()
     is_admin = temp3[0][4]
-    return render(request, "dashboard.html",{"temp2":temp2,"temp3":temp3,"is_admin":is_admin})
+    return render(request, "dashboard.html",{"temp2":temp2,"temp3":temp3,"is_admin":is_admin,})
 
 
 def login(request):
@@ -44,12 +45,14 @@ def check_login(request):
     email = request.POST['email']
     password = request.POST['password']
     temp2 = User.objects.all().filter(email = email).values_list()
-    username = temp2[0][4]
-
-    user = authenticate(username=username, password=password)
-    if user is not None :
-        auth.login(request,user)
-        return redirect('/dashboard')
+    if temp2.first() is not None:
+        username = temp2[0][4]
+        user = authenticate(username=username, password=password)
+        if user is not None :
+            auth.login(request,user)
+            return redirect('/dashboard')
+        messages.info(request,'try again' )
+        return redirect('/login')
     else:
         messages.info(request,'try again' )
         return redirect('/login')
@@ -78,7 +81,7 @@ def signupform(request):
             messages.info(request,'email นี้ลงทะเบียนแล้ว')
             return redirect('/signup')
         else:
-            upic_path = "user_pic/"
+            upic_path = "temp_pic/"
             if request.method == 'POST' and request.FILES['pic']:
                 mypic = request.FILES['pic']
                 fs = FileSystemStorage()
@@ -90,6 +93,10 @@ def signupform(request):
                 filename = fs.save(upic_path + name , mypic)
                 uploaded_file_url = fs.url(filename)
                 pic_name = name
+
+                copyfile("file/" + upic_path + name, "static/upic/" + name)
+                os.remove("file/" + upic_path + name)
+        
 
             add_user = User.objects.create_user(
             username = username,
@@ -108,13 +115,7 @@ def signupform(request):
             User_pic= name,
             User_bio=bio, 
             )                
-            adder_user.save()  
-    
-            
-
-
-
-
+            adder_user.save()          
 
             return redirect('/login')
     else:
