@@ -169,7 +169,7 @@
 
                        
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <div class="topbar-divider d-none d-sm-block" ></div>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -213,9 +213,17 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-                    {{temp2}}  <br>
-                    {{temp3}}
+                    <h1 class="h3 mb-4 text-gray-800">Admin Add/Edit</h1><br>
+
+                    <a class="h5 mb-4 text-gray-800" href="{%url 'admin_add_tag' 0 %}">- Add Challenge/Lab Tag</a><br><br><br>
+                    <a class="h5 mb-4 text-gray-800" href="{%url 'admin_add_lesson_group' 0 %}">- Add Lesson Group</a><br><br><br>
+                    <a class="h5 mb-4 text-gray-800" href="{%url 'admin_add_lesson' 0 %}">- Add Lesson</a><br><br><br>
+                    <a class="h5 mb-4 text-gray-800" href="{%url 'admin_add_assignment' 0 %}">- Add Lesson Assignment</a><br><br><br>
+                    <a class="h5 mb-4 text-gray-800" href="{%url 'admin_add_lab' 0 %}">- Add Lab</a><br><br><br>
+                    <a class="h5 mb-4 text-gray-800" href="{%url 'admin_add_challenge' 0 %}">- Add Challenge</a><br><br><br>
+                    <a class="h5 mb-4 text-gray-800" href="{%url 'admin_add_testcase' 0 %}">- Add/Edit Challenge test case</a><br><br><br> 
+                    <a class="h5 mb-4 text-gray-800" href="{%url 'admin_dashboard' %}">- Edit Learning/Challenge/Lab</a><br><br><br>
+                   
                 </div>
                 <!-- /.container-fluid -->
 

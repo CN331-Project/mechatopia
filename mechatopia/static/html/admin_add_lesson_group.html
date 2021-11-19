@@ -205,17 +205,81 @@
                         </li>
 
                     </ul>
+                    
+
 
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <h1 class="h3 mb-4 text-gray-800">Add Lesson Group&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                        <a class="h5 mb-4 text-gray-800" href="{%url 'admin_dashboard' %}">back</a>
+                    </h1>
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-                    {{temp2}}  <br>
-                    {{temp3}}
+                   <form action="{%url 'admin_add_lesson_group_p' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Group name : </label><br>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" name="group_name" placeholder="Group name here...">
+                    </div><br>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Description : </label><br>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" name="description" placeholder="description...">
+                    </div><br>
+                    <div  class="form-group"> 
+                        <label for="exampleFormControlInput1">Picture : </label><br>
+                        <h5 class="h5 text-gray-900 mb-4">
+                        <input type="file"  class="form-control" accept="image/*" id="pic" name="pic"></h5> 
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mb-2">Add</button>           
+                   </form>
+
+                   <div class="modal fade" id="myModal3">
+                          <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="h5 mb-4 text-gray-800">Message </h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {% for i in messages%}
+                                        <div class="alert alert-success" role="alert">   
+                                        <center>{{i}}</center>  </div>
+                                        {%endfor%} 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary mx-auto" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                          </div>
+                    </div>
+                    <div class="modal fade" id="myModal4">
+                          <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="h5 mb-4 text-gray-800">Message </h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {% for i in messages%}
+                                        <div class="alert alert-danger" role="alert">   
+                                        <center>{{i}}</center>  </div>
+                                        {%endfor%} 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary mx-auto" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                          </div>
+                    </div>
+
                 </div>
                 <!-- /.container-fluid -->
 
@@ -262,6 +326,30 @@
             </div>
         </div>
     </div>
+
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js" type="text/javascript"></script>
+    {%if have_message == 1 %}
+    <script type="text/javascript">
+    $(window).on('load',function(){
+    var delayMs = 50; // delay in milliseconds
+    
+    setTimeout(function(){
+        $('#myModal3').modal('show');
+    }, delayMs);
+});  
+    </script>
+    {%endif%}
+    {%if have_message == 2 %}
+    <script type="text/javascript">
+    $(window).on('load',function(){
+    var delayMs = 50; // delay in milliseconds
+    
+    setTimeout(function(){
+        $('#myModal4').modal('show');
+    }, delayMs);
+});  
+    </script>
+    {%endif%}
 
     <!-- Bootstrap core JavaScript -->
     {% load static %}  <script src="{% static 'vendor/jquery/jquery.min.js' %}" type="text/javascript"></script>

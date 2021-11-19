@@ -112,7 +112,7 @@ def signupform(request):
             User_is_admin=False,
             User_score=0,
             User_rank="Bronze",
-            User_pic= name,
+            User_pic= pic_name,
             User_bio=bio, 
             )                
             adder_user.save()          
@@ -123,8 +123,6 @@ def signupform(request):
         return redirect('/signup')
 
 
-
-    
 
 def logout(request):
     auth.logout(request)

@@ -8,6 +8,8 @@ class Lesson(models.Model):
 	Lesson_name = models.CharField(max_length=200 ,null=True)
 	Lesson_description = models.TextField(null=True)
 	Lesson_link = models.TextField(null=True)
+	Lesson_pic = models.TextField(null=True)
+	Lesson_cover_pic = models.TextField(null=True)
 	Lesson_date = models.CharField(max_length=15 ,null=True)
 	Lesson_admin_add = models.IntegerField(null=True)
 	Lesson_group_id = models.IntegerField(null=True)
@@ -25,6 +27,7 @@ class Assignment(models.Model):
 	Assignment_lesson_id = models.IntegerField(null=True)
 	Assignment_test = models.CharField(max_length=200 ,null=True) # ไม่แน่ใจ
 	Assignment_answer = models.CharField(max_length=200 ,null=True) #
+	Assignment_no = models.CharField(max_length=200 ,null=True) 
 
 class Comment(models.Model):
 	Comment_ID = models.BigAutoField(auto_created=True, primary_key=True)
