@@ -214,8 +214,17 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>                    
-                    {{temp2}}  <br>
-                    {{temp3}}
+                    <h1 class="h5 mb-4 text-gray-700">Username : {{temp3.0.1}}</h1> 
+                    {%if is_admin == 1%}   
+                        <h1 class="h5 mb-4 text-gray-700">status : Admin</h1>  
+                    {%else%}
+                        <h1 class="h5 mb-4 text-gray-700">status : User</h1>  
+                    {%endif%}
+                    <h1 class="h5 mb-4 text-gray-700">Score : {{temp3.0.5}}</h1>
+                    <h1 class="h5 mb-4 text-gray-700">Rank : {{temp3.0.6}}</h1>
+                    <h1 class="h5 mb-4 text-gray-700">Recent pass learning :  {{recent_learning}}</h1>
+                    <h1 class="h5 mb-4 text-gray-700">Recent pass challenge :   {{recent_challenge}}</h1>
+                    
                 </div>
                 <!-- /.container-fluid -->
 

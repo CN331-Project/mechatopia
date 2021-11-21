@@ -6,7 +6,9 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.contrib import messages
+from learning.models import Lesson,Lesson_group,Assignment,Comment
 from task.models import Challenge,Challenge_test_case,Challenge_tag
+from users.models import Progress,Pass,Code,Share_link
 from users.models import User as User2
 from users.models import Progress,Code,Pass
 from django.core.files.storage import FileSystemStorage
@@ -35,7 +37,21 @@ def dashboard(request):
     temp2 = User.objects.all().filter(username = user_login_name).values_list()
     temp3 = User2.objects.all().filter(User_username = user_login_name).values_list()
     is_admin = temp3[0][4]
-    return render(request, "dashboard.html",{"temp2":temp2,"temp3":temp3,"is_admin":is_admin,})
+    recent_learning = []
+    recent_challenge = []
+    temp4 = Pass.objects.all().filter(Pass_user_id = temp3[0][9]).values_list()
+    for i in temp4:
+        temp5 = Challenge.objects.all().filter(Challenge_ID = i[2]).values_list()
+        recent_challenge.append(temp5[0][1])
+    temp6 = Progress.objects.all().filter(Progress_user_id = temp3[0][9]).values_list()
+    for i in temp6:
+        temp7 = Lesson.objects.all().filter(Lesson_ID = i[2]).values_list()
+        recent_learning.append(temp7[0][1])
+    re_cha = ", ".join(recent_challenge[-3:])
+    re_lea = ", ".join(recent_learning[-3:])
+    recent_challenge
+    return render(request, "dashboard.html",{"temp2":temp2,"temp3":temp3,"is_admin":is_admin,"recent_learning":re_lea,
+        "recent_challenge":re_cha})
 
 
 def login(request):
