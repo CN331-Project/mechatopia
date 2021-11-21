@@ -21,7 +21,7 @@ from shutil import copyfile
 # Create your views here.
 
 def welcome(request):
-    return render(request,'index.html') # เอาออก
+    return render(request,'welcome.html') # เอาออก
 
 
 def tem(request):
