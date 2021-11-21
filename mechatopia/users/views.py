@@ -133,7 +133,7 @@ def signupform(request):
             User_rank="Bronze",
             User_pic= pic_name,
             User_bio=bio, 
-            idd = temp7
+            idd = temp7[0]
             )                
             adder_user.save()          
 
