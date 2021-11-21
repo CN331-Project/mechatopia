@@ -185,10 +185,11 @@ def problem(request,challenge_id):
 			scoreupdate = User2.objects.get(idd=int(user_id))
 			scoreupdate.User_score = user_score + score 
 			scoreupdate.save() 
+			complete = 1
 
 	return render(request, "problem.html",{'link':link,'query':temp,'user_id':user_id,'challenge_id':challenge_id,
 				'temp2':lines1.split("\n"),'temp3':output.split(),'temp4':lines2.split(),"score":score,"code_box":lines4,
-				"score":score,"count":count,"correct":correct,"tag":user_id,"complete":1,"temp19":temp19})     
+				"score":score,"count":count,"correct":correct,"tag":user_id,"complete":complete,"temp19":temp19})     
       
 
 def lab(request):

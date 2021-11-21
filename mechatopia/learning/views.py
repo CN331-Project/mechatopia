@@ -92,9 +92,9 @@ def articles(request,learning_id):
 					t = tt
 				tt+=1
 			score = y[-1][t]	
-			score_list.append(score)	
+			score_list.append([score,i[2]])	
 		else:
-			score_list.append("0 / 0")
+			score_list.append(["0 / 0",i[2]])
 		temp8 = Progress.objects.all().filter(Progress_user_id = temp7[0],Progress_assignment_id = i[0]).values_list()
 		if score.split(" / ")[0] == score.split(" / ")[1]:			
 			if len(temp8)==0:
@@ -104,6 +104,7 @@ def articles(request,learning_id):
 					Progress_lesson_id = learning_id,
 			        )                
 				adder.save()
+		temp8 = Progress.objects.all().filter(Progress_user_id = temp7[0],Progress_assignment_id = i[0]).values_list()		
 		if len(temp8)!=0:
 			complete.append(1)
 		else:

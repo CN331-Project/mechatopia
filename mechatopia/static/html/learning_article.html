@@ -283,7 +283,7 @@
                         <h2 class="mb-4 tm-post-title tm-color-primary">assignment <br><br></h2>
                         <ul class="tm-mb-75 pl-5 tm-category-list">
                         {%for k in score_list%}
-                            <li><a href="https://forms.gle/XPFt8hQLh8G3YYe97" target="_blank" class="tm-color-primary">as {{forloop.counter}}</a> score = {{k}} 
+                            <li><a href="{{k.1}}" target="_blank" class="tm-color-primary">as {{forloop.counter}}</a> score = {{k.0}} 
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                             {%for l in complete%}
                             {% if forloop.counter == forloop.parentloop.counter %}

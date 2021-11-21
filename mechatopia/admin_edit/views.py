@@ -190,6 +190,8 @@ def admin_add_lesson_p(request):
 	return redirect(reverse('admin_add_lesson',args =(have_message,)))
 
 def admin_add_lab(request,have_message):
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	temp2 = Lab_tag.objects.all()
 	return render(request, "admin_add_lab.html",{"have_message":have_message,"temp2":temp2,"temp19":temp19,})
 
