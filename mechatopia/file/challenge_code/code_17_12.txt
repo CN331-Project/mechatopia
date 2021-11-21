@@ -1,13 +1,1 @@
-n = int(input())
-list = []
-for i in range(n):
-	list.append(int(input()))
-
-list.sort()
-
-print(list[0])
-print(list[-1])
-
-
-
-
+n1 = int(input())n2 = int(input())n3 = int(input())n = n1+n2+n3if n >= 80:   ans = "A"elif n>=75:   ans = "B+"elif n>=70:   ans = "B"elif n>=65:   ans = "C+"elif n>=60:   ans = "C"elif n>=55:   ans = "D+"elif n>=50:   ans = "D"else:   ans = "F"print(ans)
