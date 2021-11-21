@@ -25,8 +25,7 @@
     {% load static %}    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %} ">    
     {% load static %}    <link rel="stylesheet" type="text/css" href="{% static 'css/sb-admin-2.min.css' %} ">
     {% load static %}    <link rel="stylesheet" type="text/css" href="{% static 'vendor/fontawesome-free/css/all.min.css' %} ">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -49,11 +48,11 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard     style="color:red"-->
+            <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="{%url 'dashboard' %}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span >Dashboard</span></a>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -216,101 +215,102 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="text-center">
-                        <p class="h3 mb-4 text-gray-800">บทเรียน</p>
-                    
-                    <form   action="{%url 'learning' %}" method="post"  
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        {% csrf_token %} 
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2" name="s1">&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <div class="col-sm-3">
-                            <select class="form-select form-select-sm"  name="s2"  width="10000">
-                              <option value="0" selected>select tag</option>
-                              {%for i in temp3%}
-                              <option value="{{i.Lesson_group_ID}}">{{i.Lesson_group_name}}</option>
-                              {%endfor%}
-                            </select>
-                          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button><br>
-                            </div>
-                        </div>
-                    </form> 
-                    </div>
-
-  
+            
+            <!-- Search form -->
             <div class="row tm-row">
-
-<!--<span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
-                                {% load static %}  <img class="img-profile rounded-circle"
-                                  src="{% static "upic/" %}{{temp3.0.7}}">-->
-                <!-- ############################# -->
-                {% for i in temp2 %}
-                <article class="col-12 col-md-4 tm-post">
-                    <hr class="tm-hr-primary">
-                    <a href="{% url 'articles' i.Lesson_ID %}" class="effect-lily tm-post-link tm-pt-60">
-                        <div class="tm-post-link-inner">
-                            {% load static %}<img src="{% static "lesson/lesson_cover_pic/" %}{{i.Lesson_cover_pic}}"
-                                 alt="Image" class="img-fluid">                            
+                <div class="col-lg-8 tm-post-col">
+                    <div class="tm-post-full">    
+                    <center>
+                        <div class="mb-4">
+                            <h2 class="pt-2 tm-color-primary tm-post-title">{{temp3.1}}</h2>
+                            <p class="tm-mb-40" float="right">create date : {{temp3.6}} </p>
+                        <div class="embed-responsive embed-responsive-1by1">
+    {% load static %}  <iframe  class="border border-secondary" id="frame1" name="f1"   
+                                src="{% static "lab/lab_pic/" %}{{temp3.4}}"
+                                 width="100%" height="100%" >                                 
+                        </iframe>                                    
                         </div>
-                        <span class="position-absolute tm-new-badge">New</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{i.Lesson_name}}</h2>
-                    </a>                    
-                    <p class="tm-pt-30">{{i.Lesson_description}}</p>
-                    <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">    </span>  
-                        <span class="tm-color-primary">{{i.Lesson_date}}</span>
+                        <br><hr ><br> 
+                       <form action="{%url 'save_sharelink' lab_id %}" enctype="multipart/form-data" method="POST" >
+                                {% csrf_token %}
+                                <input type="hidden" name="user_id" value="{{user_id}}">                                
+                                <h2 class="tm-color-primary tm-post-title  mb-4" >workspace &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="btn btn-sm border border-info" name="url" type="text" placeholder="save link here...">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                
+                                <button type="submit" value="Submit" class="btn btn-primary btn-sm btn btn-dark" >
+                                  Save
+                                </button>
+                                </h2> 
+
+                                <div class="mb-4">
+                                    <object data="{{link}}" width="600" height="500">
+                                            Error: Embedded data could not be displayed.
+                                    </object>
+                                </div>
+                        </form>        
+                        
+                        
+                        <span class="d-block text-right tm-color-primary"><br><br>tag : {{tag}}</span>
+                        
+                        </div>
+                        <!--<div class="mb-4">
+                        <embed src="http://marcuscode.com/lang/python"
+                               width="100%" 
+                               height="900" /> 
+                        </div>-->
+                    </center>                     
+                        <!-- Comments -->
+                        <div>
+                            <h2 class="tm-color-primary tm-post-title">Comments</h2>
+                            <hr class="tm-hr-primary tm-mb-45">
+                            {%for m in comment_list%}
+                            <div class="tm-comment tm-mb-45">
+                                <figure class="tm-comment-figure">
+       {% load static %}            <img src="{% static "upic/" %}{{m.8}}" alt="Image" width="100" height="100" 
+                                        class="mb-2 rounded-circle img-thumbnail rounded-circle">
+                                    <figcaption class="tm-color-primary text-center">{{m.7}}</figcaption>
+                                </figure>
+                                <div>
+                                    <p class="text-gray-800">{{m.3}}
+                                    </p>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="tm-color-primary">June 14, 2020</span>
+                                    </div>                                                 
+                                </div>                                
+                            </div>
+                            {%endfor%}
+                            
+                            <form class="mb-5 tm-comment-form" action="{%url 'comment' lab_id 3 %}" method="post">
+                                {% csrf_token %}      
+                                <h2 class="tm-color-primary tm-post-title mb-4 h5">write comment</h2>
+                                <input type="hidden" id="custId" name="user_id" value="{{user_id}}">                               
+                                <div class="mb-4">
+                                    <textarea class="form-control" name="comment_text" rows="6" placeholder="comment here..."></textarea>
+                                </div>
+                                <div class="text-right">
+                                    <button class="tm-btn tm-btn-primary tm-btn-small btn-sm" >Submit</button>                     
+                                </div>                                
+                            </form>     
+                        </div>
                     </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <span>0 comments</span>
-                        <span>by Admin</span>
-                    </div>
-                </article>
-                {%endfor%}
-                
-                 <!-- ############################# -->
-                
-                
-
-            </div>
-         <!--   <div class="row tm-row tm-mt-100 tm-mb-75">
-                <div class="tm-prev-next-wrapper">
-                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-20">Prev</a>
-                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
                 </div>
-                <div class="tm-paging-wrapper">
-                    <span class="d-inline-block mr-3">Page</span>
-                    <nav class="tm-paging-nav d-inline-block">
-                        <ul>
-                            <li class="tm-paging-item active">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">1</a>
-                            </li>
-                            <li class="tm-paging-item">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">2</a>
-                            </li>
-                            <li class="tm-paging-item">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">3</a>
-                            </li>
-                            <li class="tm-paging-item">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">4</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>                
-            </div>  __>
-
-
-
-
-                    
-                </div>
-                <!-- /.container-fluid -->                
+                <aside class="col-lg-4 tm-aside-col">
+                    <div class="tm-post-sidebar">
+                        <hr class="mb-3 tm-hr-primary">
+                        <h2 class="tm-mb-40 tm-post-title tm-color-primary">Related Posts</h2>
+                        {%for j in re1%}
+                        <a href="{% url 'workspace' j.0 %}" class="d-block tm-mb-40">
+                            <figure>
+                                <img src="{% static "lab/lab_cover_pic/" %}{{j.5}}" alt="Image" class="mb-3 img-fluid">
+                                <figcaption class="tm-color-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{j.1}}</figcaption>
+                              <!--  <figcaption class="tm-color-secondary">{{j.3}}</figcaption>  -->
+                            </figure>
+                        </a>
+                        {%endfor%}                        
+                    </div>                    
+                </aside>
+            </div>   <!-- {{df}} -->           
+    </div>
+                <!-- /.container-fluid -->       
             </div>
             <!-- End of Main Content -->
 

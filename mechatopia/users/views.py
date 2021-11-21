@@ -25,6 +25,8 @@ def welcome(request):
 def tem(request):
     return render(request, "tem.html")
 
+def about(request):
+    return render(request, "about.html")
 
 ####################### ไม่ใช้ #######################################
 
@@ -106,7 +108,8 @@ def signupform(request):
             #last_name = secondname            
             )
             add_user.save()
-
+            temp6 = User.objects.all().filter(username = username).values_list()
+            temp7 = temp6[0]
             adder_user = User2(User_username=username,
             User_email = email,
             User_is_admin=False,
@@ -114,6 +117,7 @@ def signupform(request):
             User_rank="Bronze",
             User_pic= pic_name,
             User_bio=bio, 
+            idd = temp7
             )                
             adder_user.save()          
 

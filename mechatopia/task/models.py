@@ -30,6 +30,7 @@ class Lab(models.Model):
 	Lab_description = models.TextField(null=True)
 	Lab_pic = models.TextField(null=True)
 	Lab_cover_pic = models.TextField(null=True)
+	Lab_date = models.CharField(max_length=15 ,null=True)
 
 class Lab_tag(models.Model):
 	Lab_tag_ID = models.BigAutoField(auto_created=True, primary_key=True)

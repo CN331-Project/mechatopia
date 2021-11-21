@@ -31,10 +31,12 @@ class Assignment(models.Model):
 
 class Comment(models.Model):
 	Comment_ID = models.BigAutoField(auto_created=True, primary_key=True)
-	Comment_lesson_id = models.IntegerField(null=True)
+	Comment_object_id = models.IntegerField(null=True)
 	Comment_user_id = models.IntegerField(null=True)
-	Comment_text = models.TextField(null=True)
-	comment_reply = models.IntegerField(null=True)
+	Comment_text = models.TextField(null=True)	
+	Comment_reply = models.IntegerField(null=True)
+	Comment_object_is = models.TextField(null=True)
+	Comment_date = models.TextField(null=True)
 
 
 

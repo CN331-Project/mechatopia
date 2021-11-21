@@ -167,7 +167,7 @@ def admin_add_lesson_p(request):
 		adder = Lesson(
 			Lesson_name = a1,
 			Lesson_description = a2,
-			Lesson_link = a5,
+			Lesson_link = a6,
 			Lesson_date = a4,
 			Lesson_admin_add = a7,
 			Lesson_group_id = a5,
@@ -190,6 +190,8 @@ def admin_add_lab_p(request):
 	a3=request.POST.getlist('lab_tag_id[]', '');
 	a4=request.POST.get('lab_des', '');
 	pic_name = "default.jpg"
+	now = datetime.now()
+	a8=date_time = now.strftime("%Y/%m/%d")
 	temp5 = Lab.objects.all().order_by('-Lab_ID').values_list()
 	if temp5.exists():
 		a11 = temp5[0][0]
@@ -234,6 +236,7 @@ def admin_add_lab_p(request):
 			Lab_pic = pic_name,
 			Lab_cover_pic = pic_name2,
 			Lab_description = a4,
+			Lab_date = a8,
 	        )                
 		adder.save() 
 		temp3 = Lab.objects.all().filter(Lab_name = a1).values_list()

@@ -23,40 +23,31 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-
-
+    path('about/',views1.about),
 ### users
     path('', views1.welcome, name='index'),
     path('tem/', views1.tem, name='tem'),
-    path('dashboard/', views1.dashboard,name='dashboard'),
-    
+    path('dashboard/', views1.dashboard,name='dashboard'),    
     path('login/',views1.login, name="login"),
     path('check_login/',views1.check_login, name="check_login"),
     path('logout/',views1.logout, name="logout"),
     path('signup/',views1.signup, name="signup"),
-    path('signupform/',views1.signupform, name="signupform"),
-    
-### path('login/', views1.login),
-### path('login/check_login/', views1.check_login),
-### path('logout/',views1.logout),
-### path('signup',views1.signup),
-### path('signup/check_signup', views1.check_signup),
-### path('success01/<int:page_id>/<int:status>/', views1.succes01),
+    path('signupform/',views1.signupform, name="signupform"),    
 
 ### learning
 	path('learning/', views2.learning ,name='learning'),
 	path('learning/articles/<int:learning_id>/', views2.articles ,name='articles'),
     path('learning_bak/', views2.learning_bak ,name='learning_bak'),
+    path('comment/<int:object_id>/<int:object_is>/', views2.comment ,name='comment'),
 
 ### task
-	path('task/challenge/', views3.challenge,name='challenge'),
-    path('task/lab/', views3.lab ,name='lab'),
+    path('lab/', views3.lab ,name='lab'),
+    path('lab/workspace/<int:lab_id>/', views3.workspace ,name='workspace'),
     path('challenge/', views3.challenge ,name='challenge'),
     path('challenge/problem/<int:challenge_id>/', views3.problem ,name='problem'),
     path('simple_upload/<int:challenge_id>/', views3.simple_upload ,name='simple_upload'),
     path('simple_upcode/<int:challenge_id>/', views3.simple_upcode ,name='simple_upcode'),
-
+    path('save_sharelink/<int:lab_id>/', views3.save_sharelink ,name='save_sharelink'),
 
 ### admin_add/edit
     path('admin_dashboard/', views4.admin_dashboard,name='admin_dashboard'),
@@ -76,8 +67,16 @@ urlpatterns = [
     path('admin_add_assignment/<int:have_message>/', views4.admin_add_assignment,name='admin_add_assignment'),
     path('admin_add_assignment_p/', views4.admin_add_assignment_p,name='admin_add_assignment_p'),
     path('admin_add_assignment_pp/', views4.admin_add_assignment_pp,name='admin_add_assignment_pp'),
-### each_article
-#	path('task/lab/', views3.lab ,name='lab'),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()
+
+### path('login/', views1.login),
+### path('login/check_login/', views1.check_login),
+### path('logout/',views1.logout),
+### path('signup',views1.signup),
+### path('signup/check_signup', views1.check_signup),
+### path('success01/<int:page_id>/<int:status>/', views1.succes01),
+### each_article
+#   path('task/lab/', views3.lab ,name='lab'),

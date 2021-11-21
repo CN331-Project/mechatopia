@@ -222,21 +222,31 @@
                     
                         <div class="mb-4">
                             {% for i in query%}                            
-                            <h2 class="pt-2 tm-color-primary tm-post-title">{{i.Challenge_question}}</h2>
-                            {% endfor %}
-                            <p class="tm-mb-40">October 16, 2021 posted by Admin</p>
+                            <h2 class="pt-2 tm-color-primary tm-post-title">{{i.1}}</h2>                            
+                            
+                            <div class="row">
+                                <div class="col">
+                                  <p class="tm-mb-40">create date : {{i.6}} </p>
+                                </div>
+                                <div class="col">
+                                  <h2 class="pt-2 h5 tm-color-secondary">Score : {{i.3}} &nbsp;&nbsp;&nbsp;&nbsp; Level :
+                                    {%if i.4 == 1%}  easy  {%endif%}
+                                    {%if i.4 == 2%}  medium  {%endif%}
+                                    {%if i.4 == 3%}  hard  {%endif%}
+                                    {%if i.4 == 4%}  expert  {%endif%}
+                                  </h2> 
+                                </div>
+                            </div>
                         <div >
-                        <embed src="{{link}}"
-                               width="80%" 
-                               height="900"/>
+  {% load static %}         <embed src="{% static "challenge/challenge_pic/" %}{{i.2}}"  width="70%" />
                         </div>
-                        
+                        {% endfor %}
                <!--         <div class="embed-responsive embed-responsive-1by1">
                         <embed src="{% static 'challenge/challenge_problem/pb_1.pdf'%}#toolbar=0&navpanes=0&scrollbar=0" width="500" height="525" />-->
 
            
                         </div>
-                        <span class="d-block text-right tm-color-primary"><br><br>tag1 . tag2 . tag3</span>
+                        <span class="d-block text-right tm-color-primary"><br><br>{{tag}}   tag1 . tag2 . tag3</span>
                         <br>
                         </div>
                         
