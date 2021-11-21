@@ -402,7 +402,8 @@ def admin_add_assignment_p(request):
 	user_login_name = request.user 
 	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	ls_id = request.POST.get('ls_id', '');
-	return render(request, "admin_add_ass_p.html",{"ls_id":ls_id,"temp19":temp19})	
+	recent = Assignment.objects.filter(Assignment_lesson_id=ls_id).values_list()
+	return render(request, "admin_add_ass_p.html",{"ls_id":ls_id,"temp19":temp19,"recent":recent})	
 
 def admin_add_assignment_pp(request):		
 	have_message = 0

@@ -216,7 +216,6 @@
                     <h1 class="h3 mb-4 text-gray-800">Add Lesson Assignment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                         <a class="h5 mb-4 text-gray-800" href="{%url 'admin_add_assignment' 0 %}">back</a>
                     </h1>
-
                    <form action="{%url 'admin_add_assignment_pp' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}<br><br>                    
                     <input type="hidden" id="ch_id" name="ls_id" value="{{ls_id}}">                    
@@ -224,12 +223,14 @@
                       <div class="col-auto">
                         <label for="exampleFormControlInput1">Form 1 : </label><br>
                         <h5 class="h5 text-gray-900 mb-4">
-                        <input type="text" class="form-control"  name="flink1" placeholder="form link here..."></h5> 
+                        <input type="text" class="form-control"  name="flink1" placeholder="form link here..."
+                        value="{{recent.0.2}}"></h5> 
                       </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <div class="col-auto">
                         <label for="exampleFormControlInput1">Sheet 1 : </label><br>
                         <h5 class="h5 text-gray-900 mb-4">
-                        <input type="text" class="form-control"  name="slink1" placeholder="sheet link here..."></h5> 
+                        <input type="text" class="form-control"  name="slink1" placeholder="sheet link here..."
+                        value="{{recent.0.3}}"></h5> 
                       </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <div class="col-auto">                        
                         <h5 class="h5 text-gray-600 mb-1">
@@ -241,12 +242,14 @@
                       <div class="col-auto">
                         <label for="exampleFormControlInput1">Form 2 : </label><br>
                         <h5 class="h5 text-gray-900 mb-4">
-                        <input type="text" class="form-control"  name="flink2" placeholder="form link here..."></h5> 
+                        <input type="text" class="form-control"  name="flink2" placeholder="form link here..."
+                        value="{{recent.1.2}}"></h5> 
                       </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <div class="col-auto">
                         <label for="exampleFormControlInput1">Sheet 2 : </label><br>
                         <h5 class="h5 text-gray-900 mb-4">
-                        <input type="text" class="form-control"  name="slink2" placeholder="sheet link here..."></h5> 
+                        <input type="text" class="form-control"  name="slink2" placeholder="sheet link here..."
+                        value="{{recent.1.3}}"></h5> 
                       </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <div class="col-auto">                        
                         <h5 class="h5 text-gray-600 mb-1">
@@ -258,12 +261,14 @@
                       <div class="col-auto">
                         <label for="exampleFormControlInput1">Form 3 : </label><br>
                         <h5 class="h5 text-gray-900 mb-4">
-                        <input type="text" class="form-control"  name="flink3" placeholder="form link here..."></h5> 
+                        <input type="text" class="form-control"  name="flink3" placeholder="form link here..."
+                        value="{{recent.2.2}}"></h5> 
                       </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <div class="col-auto">
                         <label for="exampleFormControlInput1">Sheet 3 : </label><br>
                         <h5 class="h5 text-gray-900 mb-4">
-                        <input type="text" class="form-control"  name="slink3" placeholder="sheet link here..."></h5> 
+                        <input type="text" class="form-control"  name="slink3" placeholder="sheet link here..."
+                        value="{{recent.2.3}}"></h5> 
                       </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <div class="col-auto">                        
                         <h5 class="h5 text-gray-600 mb-1">
