@@ -18,6 +18,8 @@ from datetime import datetime
 
 
 def learning(request):
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	s1=request.POST.get('s1', "");
 	s2=request.POST.get('s2', "0");
 	if s2 != "0" and s1 != "":
@@ -29,13 +31,17 @@ def learning(request):
 	else:
 		temp2 = Lesson.objects.all()
 	temp3 = Lesson_group.objects.all()
-	return render(request, "search_learning.html",{"temp2":temp2,"temp3":temp3,"a1":s2})
+	return render(request, "search_learning.html",{"temp2":temp2,"temp3":temp3,"a1":s2,"temp19":temp19})
 
 def learning_bak(request):
-    return render(request, "search_learning_bak.html")
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
+	return render(request, "search_learning_bak.html")
 
     
 def articles(request,learning_id):
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	user_login_name = request.user 
 	temp6 = User.objects.all().filter(username = user_login_name).values_list()
 	temp7 = temp6[0]
@@ -112,7 +118,7 @@ def articles(request,learning_id):
 		temp8[m].append(temp9[0][7])
 	return render(request, "learning_article.html",{"df":temp8,'score':score,"temp3":temp3,"re1":re1,"group":group
 		,"admin":admin,"temp5":temp5,"as_result":as_result,"re_url":re_url,"complete":complete,"score_list":score_list
-		,"user_id":temp7[0],"comment_list":temp8})
+		,"user_id":temp7[0],"comment_list":temp8,"temp19":temp19})
 
 # return  HttpResponseRedirect(reverse('urlname')) c.loc[c.username[1]][2]
 def comment(request,object_id,object_is):
@@ -131,9 +137,12 @@ def comment(request,object_id,object_is):
 	if object_is == 1: #lesson
 		return redirect(reverse('articles',args =(object_id,)))
 
-	elif object_is == 2: #challenge
-		return redirect(reverse('admin_add_tag',args =(have_message,)))
+#	elif object_is == 2: #challenge
+#		return redirect(reverse('admin_add_tag',args =(have_message,)))
 
 	elif object_is == 3: #lab
 		return redirect(reverse('workspace',args =(object_id,)))
+
+
+		
 

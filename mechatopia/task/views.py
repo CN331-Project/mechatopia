@@ -17,16 +17,40 @@ import subprocess
 
 
 def challenge(request):
-	a1=''   #text
-	a2=0	#level
-	a3=0	#tag
-	a1=request.POST.get('a1', '');
-	a2=request.POST.get('a2', 0);
-	a3=request.POST.get('a3', 0);
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
+	a1=request.POST.get('a1', "");#text
+	a2=request.POST.get('a2', "0");#level
+	a3=request.POST.get('a3', "0");#tag
 	all_tag = Challenge_tag.objects.all()
 #    if(a1 != ''):
 	temp = Challenge.objects.all().filter()
-	return render(request, "search_challenge.html",{"all_tag":all_tag,"temp":temp,"a1":a1,"a2":a2,"a3":a3})
+	temp5 = []
+	temp6 = []
+	temp3 = []
+#	if s2 != "0" and s1 != "":
+#		temp2 = Lab_in_tag.objects.all().filter(Lab_tag_id = s2)
+	if a2 != "0":
+		temp2 = Challenge.objects.all().filter(Challenge_level=a2).values_list()		
+	else:
+		temp2 = Challenge.objects.all().values_list()
+	if a3 != "0":
+		temp3 = Challenge_in_tag.objects.all().filter(Challenge_tag_id=a3).values_list()	
+		for i in temp3:
+			for j in temp2:
+				if i[1] == j[0]:
+					temp5.append(list(j))
+	else:
+		for i in temp2:
+			temp5.append(list(i))
+	if a1 != "":
+		for i in temp5:
+			if a1 in i[1]:
+				temp6.append(i)
+	else:
+		for i in temp5:
+			temp6.append(i)
+	return render(request, "search_challenge.html",{"all_tag":all_tag,"temp":temp,"a1":a1,"a2":a2,"a3":a3,"temp5":temp6,"temp19":temp19})
 
 
 def simple_upload(request,challenge_id):
@@ -81,6 +105,8 @@ def simple_upcode(request,challenge_id):
 
 def problem(request,challenge_id):
 	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
+	user_login_name = request.user 
 	temp9 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	user_id = temp9[0][9]
 	user_score = temp9[0][5]
@@ -108,6 +134,7 @@ def problem(request,challenge_id):
 	count = 0
 	output = ""
 	lines4 = ""
+	complete = 0
 
 	for i in temp2:
 		count+=1
@@ -147,7 +174,7 @@ def problem(request,challenge_id):
 
 	temp4 = Pass.objects.all().filter(Pass_challenge_id = challenge_id,Pass_user_id = user_id).values_list()
 	if temp4.exists():
-		a=5
+		complete = 1
 	else:
 		if count == correct:
 			adder = Pass(
@@ -161,10 +188,12 @@ def problem(request,challenge_id):
 
 	return render(request, "problem.html",{'link':link,'query':temp,'user_id':user_id,'challenge_id':challenge_id,
 				'temp2':lines1.split("\n"),'temp3':output.split(),'temp4':lines2.split(),"score":score,"code_box":lines4,
-				"score":score,"count":count,"correct":correct,"tag":user_id})     
+				"score":score,"count":count,"correct":correct,"tag":user_id,"complete":1,"temp19":temp19})     
       
 
 def lab(request):
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	s1=request.POST.get('s1', "");
 	s2=request.POST.get('s2', "0");
 	a = 0
@@ -184,10 +213,12 @@ def lab(request):
 	else:
 		temp2 = Lab.objects.all().values_list()
 	temp3 = Lab_tag.objects.all()
-	return render(request, "search_lab.html",{"temp2":temp2,"temp3":temp3,"a1":temp2})
+	return render(request, "search_lab.html",{"temp2":temp2,"temp3":temp3,"a1":temp2,"temp19":temp19})
 
 
 def workspace(request,lab_id):
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	user_login_name = request.user 
 	tag = []
 	temp2 = Lab.objects.all().filter(Lab_ID = lab_id).values_list()
@@ -231,7 +262,7 @@ def workspace(request,lab_id):
 		temp8[m].append(temp9[0][7])
 
 	return render(request, "workspace.html",{"temp3":temp3,"tag":tag,"re1":re1,"lab_id":lab_id,"user_id":user_id,"link":link,
-			"comment_list":temp8})
+			"comment_list":temp8,"temp19":temp19})
 
 def save_sharelink(request,lab_id):
 	url=request.POST.get('url', "");

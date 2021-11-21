@@ -18,14 +18,20 @@ from datetime import datetime
 
 
 def admin_dashboard(request):
-	return render(request, "admin_dashboard.html")
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
+	return render(request, "admin_dashboard.html",{"temp19":temp19})
 
 
 def admin_add_tag(request,have_message):
-	return render(request, "admin_add_tag.html",{"have_message":have_message})
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
+	return render(request, "admin_add_tag.html",{"have_message":have_message,"temp19":temp19})
 
 
 def admin_add_tag_p(request):
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	have_message = 0
 	a1=request.POST.get('a1', '');
 	if a1 == "1":
@@ -55,7 +61,9 @@ def admin_add_tag_p(request):
 
 
 def admin_add_lesson_group(request,have_message):
-	return render(request, "admin_add_lesson_group.html",{"have_message":have_message})
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
+	return render(request, "admin_add_lesson_group.html",{"have_message":have_message,"temp19":temp19})
 
 
 def admin_add_lesson_group_p(request):
@@ -109,8 +117,10 @@ def admin_add_lesson_group_p(request):
 
 
 def admin_add_lesson(request,have_message):
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	temp2 = Lesson_group.objects.all()
-	return render(request, "admin_add_lesson.html",{"have_message":have_message,"temp2":temp2,})
+	return render(request, "admin_add_lesson.html",{"have_message":have_message,"temp2":temp2,"temp19":temp19})
 
 def admin_add_lesson_p(request):
 	have_message = 0
@@ -181,7 +191,7 @@ def admin_add_lesson_p(request):
 
 def admin_add_lab(request,have_message):
 	temp2 = Lab_tag.objects.all()
-	return render(request, "admin_add_lab.html",{"have_message":have_message,"temp2":temp2,})
+	return render(request, "admin_add_lab.html",{"have_message":have_message,"temp2":temp2,"temp19":temp19,})
 
 def admin_add_lab_p(request):
 	have_message = 0
@@ -252,8 +262,10 @@ def admin_add_lab_p(request):
 	return redirect(reverse('admin_add_lab',args =(have_message,)))
 
 def admin_add_challenge(request,have_message):
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	temp2 = Challenge_tag.objects.all()
-	return render(request, "admin_add_challenge.html",{"have_message":have_message,"temp2":temp2,})
+	return render(request, "admin_add_challenge.html",{"have_message":have_message,"temp2":temp2,"temp19":temp19,})
 
 def admin_add_challenge_p(request):
 	have_message = 0
@@ -311,12 +323,16 @@ def admin_add_challenge_p(request):
 	return redirect(reverse('admin_add_challenge',args =(have_message,)))
 
 def admin_add_testcase(request,have_message):
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	temp2 = Challenge.objects.all()
-	return render(request, "admin_add_testcase.html",{"have_message":have_message,"temp2":temp2,})
+	return render(request, "admin_add_testcase.html",{"have_message":have_message,"temp2":temp2,"temp19":temp19,})
 
 def admin_add_testcase_p(request):	
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	ch_id = request.POST.get('ch_id', '');
-	return render(request, "admin_add_testcase_p.html",{"ch_id":ch_id})
+	return render(request, "admin_add_testcase_p.html",{"ch_id":ch_id,"temp19":temp19})
 
 def admin_add_testcase_pp(request):
 	have_message = 0
@@ -377,14 +393,18 @@ def admin_add_testcase_pp(request):
 	return redirect(reverse('admin_add_testcase',args =(have_message,)))
 
 def admin_add_assignment(request,have_message):
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	temp2 = Lesson.objects.all()
-	return render(request, "admin_add_ass.html",{"have_message":have_message,"temp2":temp2,})
+	return render(request, "admin_add_ass.html",{"have_message":have_message,"temp2":temp2,"temp19":temp19,})
 
 def admin_add_assignment_p(request):	
+	user_login_name = request.user 
+	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	ls_id = request.POST.get('ls_id', '');
-	return render(request, "admin_add_ass_p.html",{"ls_id":ls_id})	
+	return render(request, "admin_add_ass_p.html",{"ls_id":ls_id,"temp19":temp19})	
 
-def admin_add_assignment_pp(request):	
+def admin_add_assignment_pp(request):		
 	have_message = 0
 	no = 1
 	ls_id = request.POST.get('ls_id', '');
