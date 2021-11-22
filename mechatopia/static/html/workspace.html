@@ -38,7 +38,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -202,7 +202,7 @@
                                 </a>
                                 {%endif%}
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{%url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -227,10 +227,11 @@
                             <h2 class="pt-2 tm-color-primary tm-post-title">{{temp3.1}}</h2>
                             <p class="tm-mb-40" float="right">create date : {{temp3.6}} </p>
                         <div class="embed-responsive embed-responsive-1by1">
-    {% load static %}  <iframe  class="border border-secondary" id="frame1" name="f1"   
+  <!--  {% load static %}  <iframe  class="border border-secondary" id="frame1" name="f1"   
                                 src="{% static "lab/lab_pic/" %}{{temp3.4}}"
                                  width="100%" height="100%" >                                 
-                        </iframe>                                    
+                        </iframe>                  -->     
+        {% load static %}         <embed src="{% static "lab/lab_pic/" %}{{temp3.4}}"  width="70%" />             
                         </div>
                         <br><hr ><br> 
                        <form action="{%url 'save_sharelink' lab_id %}" enctype="multipart/form-data" method="POST" >

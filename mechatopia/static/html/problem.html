@@ -37,7 +37,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" >
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -201,7 +201,7 @@
                                 </a>
                                 {%endif%}
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{%url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -248,7 +248,7 @@
 
            
                         </div>
-                        <span class="d-block text-right tm-color-primary"><br><br>{{tag}}   tag1 . tag2 . tag3</span>
+                   <!--     <span class="d-block text-right tm-color-primary"><br><br>{{tag}}   tag1 . tag2 . tag3</span> -->
                         <br>
                         </div>
                         

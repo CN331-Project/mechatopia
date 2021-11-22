@@ -44,7 +44,10 @@ def articles(request,learning_id):
 	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	user_login_name = request.user 
 	temp6 = User.objects.all().filter(username = user_login_name).values_list()
-	temp7 = temp6[0]
+	if temp6.exists():
+		temp7 = temp6[0]
+	else:
+		return redirect("/login")
 	temp2 = Lesson.objects.all().filter(Lesson_ID = learning_id).values_list()
 	temp3 = temp2[0]
 	lg_id = temp3[8]

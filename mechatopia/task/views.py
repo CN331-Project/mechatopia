@@ -108,7 +108,10 @@ def problem(request,challenge_id):
 	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	user_login_name = request.user 
 	temp9 = User2.objects.all().filter(User_username = user_login_name,).values_list()
-	user_id = temp9[0][9]
+	if temp9.exists():
+		user_id = temp9[0][9]
+	else:
+		return redirect("/login")	
 	user_score = temp9[0][5]
 	have_code = 0
 	code_temp = ""
@@ -247,7 +250,10 @@ def workspace(request,lab_id):
 	re1 = re1[count2-3:count2+3]
 	link = ""
 	temp9 = User2.objects.all().filter(User_username = user_login_name,).values_list()
-	user_id = temp9[0][9]
+	if temp9.exists():
+		user_id = temp9[0][9]
+	else:
+		return redirect("/login")	
 	temp10 = Share_link.objects.all().filter(Share_user_id = user_id,Share_lab_id = lab_id).values_list()
 	if temp10.exists():
 		link = temp10[0][3]
