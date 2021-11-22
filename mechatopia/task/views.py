@@ -13,11 +13,12 @@ import os
 from django.conf import settings
 from subprocess import Popen, PIPE
 import subprocess
+import shlex
 # Create your views here.
 
 
 def challenge(request):
-	user_login_name = request.user 
+	user_login_name = request.user
 	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	a1=request.POST.get('a1', "");#text
 	a2=request.POST.get('a2', "0");#level
@@ -31,11 +32,11 @@ def challenge(request):
 #	if s2 != "0" and s1 != "":
 #		temp2 = Lab_in_tag.objects.all().filter(Lab_tag_id = s2)
 	if a2 != "0":
-		temp2 = Challenge.objects.all().filter(Challenge_level=a2).values_list()		
+		temp2 = Challenge.objects.all().filter(Challenge_level=a2).values_list()
 	else:
 		temp2 = Challenge.objects.all().values_list()
 	if a3 != "0":
-		temp3 = Challenge_in_tag.objects.all().filter(Challenge_tag_id=a3).values_list()	
+		temp3 = Challenge_in_tag.objects.all().filter(Challenge_tag_id=a3).values_list()
 		for i in temp3:
 			for j in temp2:
 				if i[1] == j[0]:
@@ -55,7 +56,7 @@ def challenge(request):
 
 def simple_upload(request,challenge_id):
 	code_st_path = "challenge_code/"
-	user_login_name = request.user 
+	user_login_name = request.user
 	temp9 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	user_id = temp9[0][9]
 	if request.method == 'POST' and request.FILES['mycode']:
@@ -64,7 +65,7 @@ def simple_upload(request,challenge_id):
 		name = "code_" + str(user_id) + "_" + str(challenge_id)
 
 		if os.path.isfile("file/" + code_st_path + name + ".txt"):
-			os.remove("file/" + code_st_path + name + ".txt")  
+			os.remove("file/" + code_st_path + name + ".txt")
 
 		filename = fs.save(code_st_path + name + ".txt" , myfile)
 		uploaded_file_url = fs.url(filename)
@@ -72,7 +73,7 @@ def simple_upload(request,challenge_id):
 				Code_filename = name + ".txt",
 				Code_user_id = user_id,
 				Code_challenge_id = challenge_id,
-			)                
+			)
 		adder.save()
 		return redirect(reverse('problem',args=(challenge_id,)))
 	else:
@@ -81,14 +82,14 @@ def simple_upload(request,challenge_id):
 def simple_upcode(request,challenge_id):
 	code_st_path = "challenge_code/"
 	code_box = request.POST.get('code_box', False);
-	user_login_name = request.user 
+	user_login_name = request.user
 	temp9 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	user_id = temp9[0][9]
 	if request.method == 'POST':
 		name = "code_" + str(user_id) + "_" + str(challenge_id)
 		code_file = "file/" + code_st_path + name + ".txt"
 		if os.path.isfile(code_file):
-			os.remove(code_file)  
+			os.remove(code_file)
 
 		file1 = open(code_file,"w")
 		file1.write("".join(code_box.split("\n")))
@@ -98,15 +99,15 @@ def simple_upcode(request,challenge_id):
 				Code_filename = name + ".txt",
 				Code_user_id = user_id,
 				Code_challenge_id = challenge_id,
-			)                
+			)
 		adder.save()
-		return redirect(reverse('problem',args=(challenge_id,)))	
+		return redirect(reverse('problem',args=(challenge_id,)))
 	return redirect(reverse('problem',args=(challenge_id,)))
 
 def problem(request,challenge_id):
-	user_login_name = request.user 
+	user_login_name = request.user
 	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
-	user_login_name = request.user 
+	user_login_name = request.user
 	temp9 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	if temp9.exists():
 		user_id = temp9[0][9]
@@ -168,8 +169,8 @@ def problem(request,challenge_id):
 			file1.close()
 
 			run = "python " + temp_py_file + " " + " ".join(lines1.split("\n")) + " \n "
-			
-			p = subprocess.Popen(run, stdout=subprocess.PIPE)
+
+			p = subprocess.Popen(shlex.split(run), stdout=subprocess.PIPE)
 			output = p.communicate()[0].decode()
 			if lines2.split() == output.split():
 				correct+=1
@@ -186,17 +187,17 @@ def problem(request,challenge_id):
 	        )
 			adder.save()
 			scoreupdate = User2.objects.get(idd=int(user_id))
-			scoreupdate.User_score = user_score + score 
-			scoreupdate.save() 
+			scoreupdate.User_score = user_score + score
+			scoreupdate.save()
 			complete = 1
 
 	return render(request, "problem.html",{'link':link,'query':temp,'user_id':user_id,'challenge_id':challenge_id,
 				'temp2':lines1.split("\n"),'temp3':output.split(),'temp4':lines2.split(),"score":score,"code_box":lines4,
-				"score":score,"count":count,"correct":correct,"tag":user_id,"complete":complete,"temp19":temp19})     
-      
+				"score":score,"count":count,"correct":correct,"tag":user_id,"complete":complete,"temp19":temp19})
+
 
 def lab(request):
-	user_login_name = request.user 
+	user_login_name = request.user
 	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
 	s1=request.POST.get('s1', "");
 	s2=request.POST.get('s2', "0");
@@ -206,14 +207,14 @@ def lab(request):
 #		temp2 = Lab_in_tag.objects.all().filter(Lab_tag_id = s2)
 	if s1 != "":
 		temp2 = Lab.objects.all().filter(Lab_name__contains=s1).values_list()
-	elif s2 != "0":		
+	elif s2 != "0":
 		temp2 = Lab_in_tag.objects.all().filter(Lab_tag_id = int(s2)).values_list()
 		temp2 = list(temp2)
 		for i in range(len(temp2)):
 			temp4 = Lab.objects.all().filter(Lab_ID=temp2[i][1]).values_list()
 			temp5.append(temp4[0])
 			a = 3
-		temp2 = temp5[:]	
+		temp2 = temp5[:]
 	else:
 		temp2 = Lab.objects.all().values_list()
 	temp3 = Lab_tag.objects.all()
@@ -221,9 +222,9 @@ def lab(request):
 
 
 def workspace(request,lab_id):
-	user_login_name = request.user 
+	user_login_name = request.user
 	temp19 = User2.objects.all().filter(User_username = user_login_name,).values_list()
-	user_login_name = request.user 
+	user_login_name = request.user
 	tag = []
 	temp2 = Lab.objects.all().filter(Lab_ID = lab_id).values_list()
 	temp3 = temp2[0]
@@ -262,7 +263,7 @@ def workspace(request,lab_id):
 	###### comment
 	temp8 = Comment.objects.all().filter(Comment_object_id = lab_id, Comment_object_is = 3).values_list()
 	temp8 = list(temp8)
-	for m in range(len(temp8)):		
+	for m in range(len(temp8)):
 		temp9 = User2.objects.all().filter(idd = temp8[m][2]).values_list()
 		temp8[m]=list(temp8[m])
 		temp8[m].append(temp9[0][1])
@@ -280,13 +281,12 @@ def save_sharelink(request,lab_id):
 		dele.delete()
 	adder = Share_link(
 			Share_user_id = user_id,
-			Share_lab_id = lab_id,			
+			Share_lab_id = lab_id,
 			Share_url = url,
-	        )                
-	adder.save() 
+	        )
+	adder.save()
 	return redirect(reverse('workspace',args=(lab_id,)))
 
 # return  HttpResponseRedirect(reverse('urlname'))
 #return render(request, "regis/index.html",{'courses':data,"data2":data2,"year":year,"a1":a1,"a2":a2})
 
-		

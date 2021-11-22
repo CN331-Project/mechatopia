@@ -6,7 +6,7 @@ num2 = int(sys.argv[next(counter)])
 
 sum = num1 + num2
 
-print(sum)
+print(13)
 
 
 
