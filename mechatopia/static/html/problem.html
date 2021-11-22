@@ -240,7 +240,7 @@
                                 </div>
                             </div>
                         <div >
-  {% load static %}         <embed src="{% static "challenge/challenge_pic/" %}{{i.2}}"  width="70%" />
+  {% load static %}         <embed src="{% static "challenge/challenge_pic/" %}{{i.2}}"   />
                         </div>
                         {% endfor %}
                <!--         <div class="embed-responsive embed-responsive-1by1">
@@ -368,7 +368,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{%url 'logout' %}"Logout</a>
                 </div>
             </div>
         </div>
