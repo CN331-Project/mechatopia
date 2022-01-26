@@ -8,4 +8,5 @@ django-heroku
 coverage
 pandas
 numpy
+ckeditor
 ##

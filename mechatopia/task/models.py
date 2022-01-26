@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Challenge(models.Model):
@@ -10,6 +10,7 @@ class Challenge(models.Model):
 	Challenge_level = models.IntegerField(null=True)
 	Challenge_description = models.TextField(null=True)
 	Challenge_date = models.CharField(max_length=15 ,null=True)
+	Challenge_body = RichTextField()
 
 class Challenge_test_case(models.Model):
 	Challenge_test_ID = models.BigAutoField(auto_created=True, primary_key=True)
@@ -31,6 +32,7 @@ class Lab(models.Model):
 	Lab_pic = models.TextField(null=True)
 	Lab_cover_pic = models.TextField(null=True)
 	Lab_date = models.CharField(max_length=15 ,null=True)
+	Lab_body = RichTextField()
 
 class Lab_tag(models.Model):
 	Lab_tag_ID = models.BigAutoField(auto_created=True, primary_key=True)

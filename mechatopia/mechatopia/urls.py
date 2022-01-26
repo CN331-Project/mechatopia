@@ -22,7 +22,7 @@ from admin_edit import views as views4
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('adminn/',admin.site.urls,),
     path('about/',views1.about, name='about'),
 ### users
     path('', views1.welcome, name='index'),

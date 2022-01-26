@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 
@@ -13,6 +13,7 @@ class Lesson(models.Model):
 	Lesson_date = models.CharField(max_length=15 ,null=True)
 	Lesson_admin_add = models.IntegerField(null=True)
 	Lesson_group_id = models.IntegerField(null=True)
+	Lesson_body = RichTextField()
 
 class Lesson_group(models.Model):
 	Lesson_group_ID = models.BigAutoField(auto_created=True, primary_key=True)

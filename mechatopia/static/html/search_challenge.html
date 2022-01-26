@@ -202,7 +202,7 @@
                     </div>
 
                       
-            <div class="row tm-row">
+            
 
 <form class="row gx-3 gy-2 align-items-center" action="{%url 'challenge' %}" method="post">
     {% csrf_token %}
@@ -235,6 +235,7 @@
 </form>
 <h5><br> search -> {{a1}}  , level = {{a2}} , tag = {{a3}}<br></h5>
 
+<div class="container-fluid">
 <table class="table table-dark table-hover">
   <thead>
     <tr>
@@ -279,82 +280,7 @@
 
   </tbody>
 </table>
-
-                <!-- ############################# -->
-  <!--              <h5> ค้นหา   :   รหัสวิชา =  {{my_list.0}}  ,  ชื่อวิชา   = {{my_list.1}}  ,   สำหรับชั้นปี   =  {{my_list.2}}    <h5>
-  {%for i in query%}
-    {%if my_list.0 == '' or my_list.0 == i.Scode%}  
-    {%if my_list.1 == '' or my_list.1 == i.Sname%}
-    {%if my_list.2 == 0 or my_list.2 == i.for_year%} 
-    <tr>
-      <td>&nbsp;&nbsp;{{forloop.counter}}</td>
-      <td>{{i.Scode}}</td>
-      <td>{{i.Sname}}</td>
-      <td>{{i.Sec}}</td>
-      <td>{{i.Sitting}}/{{i.Sit}}</td>
-      <td>สำหรับชั้นปี {{i.for_year}}</td>
-
-<!-      {%if i.Sit > i.Sitting %}
-        {{sit_temp}} = {{1}}
-      {%else%}
-        {{sit_temp}} = {{0}}
-      {%endif%}   ->
-      {%if stid == 0%}
-      <td>เข้าสู่ระบบเพื่อลงทะเบียน</td>
-      {%else%}
-      {%if i.Status == 1 and i.Sit > i.Sitting %}
-        <td><a class="btn btn-primary btn-sm" href="/enroll/{{stid}}/{{i.SID}}/"  type="button">register</a>
-            
-        </td>
-      {%else%}
-        <td><a class="btn btn-primary btn-sm disabled" aria-disabled="true" role="button" 
-        data-bs-toggle="button">noooo</a></td>
-      {%endif%}  
-      {%endif%}
-      {%if i.Status == 1 and i.Sit > i.Sitting %}
-        <td>กำลังเปิดรับ</td>
-      {%endif%} 
-      {%if i.Status == 0%}
-        <td>ปิดรับ</td>
-      {%endif%} 
-      {%if i.Status == 1 and  i.Sitting >= i.Sit%}
-        <td>เต็ม</td>
-      {%endif%}  
-        
-       
-    </tr>
-    {%endif%}{%endif%}{%endif%} 
-   {%endfor%}    -->
-
-            </div>
-            <!--
-            <div class="row tm-row tm-mt-100 tm-mb-75">
-                <div class="tm-prev-next-wrapper">
-                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-20">Prev</a>
-                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
-                </div>
-                <div class="tm-paging-wrapper">
-                    <span class="d-inline-block mr-3">Page</span>
-                    <nav class="tm-paging-nav d-inline-block">
-                        <ul>
-                            <li class="tm-paging-item active">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">1</a>
-                            </li>
-                            <li class="tm-paging-item">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">2</a>
-                            </li>
-                            <li class="tm-paging-item">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">3</a>
-                            </li>
-                            <li class="tm-paging-item">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">4</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>                
-            </div>  -->
-
-
+</div>
 
 
                     

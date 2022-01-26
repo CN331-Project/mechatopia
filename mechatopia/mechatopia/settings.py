@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'learning',
     'task',
     'admin_edit',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

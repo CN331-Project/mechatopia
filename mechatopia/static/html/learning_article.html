@@ -225,14 +225,8 @@
                         <div class="mb-4">
                             <h2 class="pt-2 tm-color-primary tm-post-title">{{temp3.1}}</h2>
                             <p class="tm-mb-40">{{temp3.6}} posted by {{admin}}</p>
-                        <div class="embed-responsive embed-responsive-1by1">
-   <!-- {% load static %}  <iframe class="embed-responsive-item"  src="{% static "lesson/lesson_pic/" %}{{temp3.4}}"
-                                 width="100%">                          
-                       </iframe>-->
-                       
-  {% load static %}         <embed src="{% static "lesson/lesson_pic/" %}{{temp3.4}}"  width="70%" />
-                        
-                        
+                        <div >
+                                {{temp3.9|safe}}
                         </div>
                         <span class="d-block text-right tm-color-primary"><br><br>from : {{group}}</span>                        
                         </div>

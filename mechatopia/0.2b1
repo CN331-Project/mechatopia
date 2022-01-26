@@ -1,0 +1,30 @@
+Collecting xhtml2pdf
+  Downloading xhtml2pdf-0.2.5.tar.gz (100 kB)
+Collecting html5lib>=1.0
+  Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
+Collecting pyPdf2
+  Downloading PyPDF2-1.26.0.tar.gz (77 kB)
+Requirement already satisfied: Pillow in c:\users\administrator\appdata\local\programs\python\python39\lib\site-packages (from xhtml2pdf) (8.4.0)
+Collecting reportlab>=3.3.0
+  Downloading reportlab-3.6.5-cp39-cp39-win_amd64.whl (2.3 MB)
+Requirement already satisfied: six in c:\users\administrator\appdata\local\programs\python\python39\lib\site-packages (from xhtml2pdf) (1.16.0)
+Collecting python-bidi>=0.4.2
+  Downloading python_bidi-0.4.2-py2.py3-none-any.whl (30 kB)
+Collecting arabic-reshaper>=2.1.0
+  Downloading arabic_reshaper-2.1.3-py3-none-any.whl (20 kB)
+Requirement already satisfied: setuptools in c:\users\administrator\appdata\local\programs\python\python39\lib\site-packages (from arabic-reshaper>=2.1.0->xhtml2pdf) (57.4.0)
+Collecting future
+  Downloading future-0.18.2.tar.gz (829 kB)
+Collecting webencodings
+  Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+Using legacy 'setup.py install' for xhtml2pdf, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for future, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pyPdf2, since package 'wheel' is not installed.
+Installing collected packages: webencodings, future, reportlab, python-bidi, pyPdf2, html5lib, arabic-reshaper, xhtml2pdf
+    Running setup.py install for future: started
+    Running setup.py install for future: finished with status 'done'
+    Running setup.py install for pyPdf2: started
+    Running setup.py install for pyPdf2: finished with status 'done'
+    Running setup.py install for xhtml2pdf: started
+    Running setup.py install for xhtml2pdf: finished with status 'done'
+Successfully installed arabic-reshaper-2.1.3 future-0.18.2 html5lib-1.1 pyPdf2-1.26.0 python-bidi-0.4.2 reportlab-3.6.5 webencodings-0.5.1 xhtml2pdf-0.2.5
