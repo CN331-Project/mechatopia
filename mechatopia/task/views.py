@@ -112,7 +112,7 @@ def problem(request,challenge_id):
 	if temp9.exists():
 		user_id = temp9[0][9]
 	else:
-		return redirect("/login")	
+		return redirect("/login")
 	user_score = temp9[0][5]
 	have_code = 0
 	code_temp = ""
@@ -254,7 +254,7 @@ def workspace(request,lab_id):
 	if temp9.exists():
 		user_id = temp9[0][9]
 	else:
-		return redirect("/login")	
+		return redirect("/login")
 	temp10 = Share_link.objects.all().filter(Share_user_id = user_id,Share_lab_id = lab_id).values_list()
 	if temp10.exists():
 		link = temp10[0][3]
