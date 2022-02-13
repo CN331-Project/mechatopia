@@ -55,7 +55,10 @@ def dashboard(request):
 
 
 def login(request):
-    return render(request, "login.html")
+	user_login_name = request.user
+	#if user_login_name is not None :
+		#return redirect('/dashboard')
+	return render(request, "login.html")
 
 
 

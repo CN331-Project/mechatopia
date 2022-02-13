@@ -81,6 +81,13 @@ WSGI_APPLICATION = 'mechatopia.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db_mechatopia.sqlite3',
+    }
+}
+"""
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dbtest',
         'USER': 'postgres',
@@ -88,7 +95,7 @@ DATABASES = {
         'HOST': '0.0.0.0',
         'PORT': '8081',
     }
-}
+}"""
 
 
 # Password validation
